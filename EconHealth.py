@@ -220,7 +220,7 @@ for i in range(4):
 # Título general
 fig.suptitle("Diagnóstico del Sistema Circulatorio Económico (Liquidez)", color="white", fontsize=18)
 plt.tight_layout(rect=[0, 0, 1, 0.96])
-plt.show()
+st.pyplot(fig)
 
 
 
@@ -233,9 +233,9 @@ df_cerebro = df_full[[
 ]]
 
 plt.style.use("bmh")
-fig, ax1 = plt.subplots(3,1,figsize=(20,25), sharex=True)
+fig1, ax1 = plt.subplots(3,1,figsize=(20,25), sharex=True)
 
-fig.patch.set_facecolor("#1E1E1E")
+fig1.patch.set_facecolor("#1E1E1E")
 
 
 colores = ["#FFFFFF"] * 4
@@ -265,6 +265,6 @@ for i in range(3):
                    fontsize=9,
                    bbox=dict(boxstyle="round", fc="black", ec="orange"))
     
-fig.suptitle("Diagnóstico del Sistema nervioso Económico (Condiciones financieras)", color="white", fontsize=18)
+fig1.suptitle("Diagnóstico del Sistema nervioso Económico (Condiciones financieras)", color="white", fontsize=18)
 plt.tight_layout(rect=[0, 0, 1, 0.96])
-plt.show()
+st.pyplot(fig1)
