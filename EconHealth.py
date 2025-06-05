@@ -4,7 +4,7 @@ import pandas as pd
 import time
 import datetime as dt
 
-from tiingo import TiingoClient
+
 import pandas_datareader.data as web
 import statsmodels.api as sm
 import seaborn as sns
