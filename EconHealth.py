@@ -19,6 +19,8 @@ from sklearn.decomposition import PCA
 from fredapi import Fred
 import streamlit as st
 
+st.set_page_config(layout="wide")
+
 # PROYECTO ANATOMIA ECONOMICA 
 # Obejtivo : analizar y preparar medidas de inversion en el ambiente macroeconomico
 """
@@ -271,7 +273,7 @@ st.pyplot(fig1)
 
 
 # Configuracion de la app
-st.set_page_config(layout="wide")
+
 st.title("🧍 Anatomía Económica del Mercado")
 
 sistema = st.sidebar.selectbox(
