@@ -268,3 +268,56 @@ for i in range(3):
 fig1.suptitle("Diagnóstico del Sistema nervioso Económico (Condiciones financieras)", color="white", fontsize=18)
 plt.tight_layout(rect=[0, 0, 1, 0.96])
 st.pyplot(fig1)
+
+
+# Configuracion de la app
+st.set_page_config(layout="wide")
+st.title("🧍 Anatomía Económica del Mercado")
+
+sistema = st.sidebar.selectbox(
+    "Selecciona un sistema",
+    ["🫀 Circulatorio", "🧠 Nervioso"]
+)
+
+# ----------- SISTEMA CIRCULATORIO -------------- #
+if sistema == "🢀 Circulatorio":
+    st.header("🫀 Sistema Circulatorio (Liquidez)")
+
+    fig1 = go.Figure()
+    fig1.add_trace(go.Scatter(x=df_full.index, y=df_full['SOFR - EFFR'], name='SOFR - EFFR', line=dict(color="white")))
+    fig1.update_layout(title="Spread SOFR vs EFFR", template="plotly_dark", height=400)
+    st.plotly_chart(fig1, use_container_width=True)
+
+    fig2 = go.Figure()
+    fig2.add_trace(go.Scatter(x=df_full.index, y=df_full["M2 Money Stock"], name='M2', line=dict(color="cyan")))
+    fig2.update_layout(title="M2 Money Stock", template="plotly_dark", height=400)
+    st.plotly_chart(fig2, use_container_width=True)
+
+    fig3 = go.Figure()
+    fig3.add_trace(go.Scatter(x=df_full.index, y=df_full["Reverse Repo (ON RRP)"], name='RRP', line=dict(color="orange")))
+    fig3.update_layout(title="Reverse Repo", template="plotly_dark", height=400)
+    st.plotly_chart(fig3, use_container_width=True)
+
+    fig4 = go.Figure()
+    fig4.add_trace(go.Scatter(x=df_full.index, y=df_full["Reserve Balances with Federal Reserve Banks"], name='Reservas', line=dict(color="lightgreen")))
+    fig4.update_layout(title="Reservas Bancarias", template="plotly_dark", height=400)
+    st.plotly_chart(fig4, use_container_width=True)
+
+# ----------- SISTEMA NERVIOSO -------------- #
+elif sistema == "🧠 Nervioso":
+    st.header("🧠 Sistema Nervioso (Condiciones Financieras)")
+
+    fig5 = go.Figure()
+    fig5.add_trace(go.Scatter(x=df_full.index, y=df_full["Chicago Fed Financial Conditions Index"], name='NFCI', line=dict(color="white")))
+    fig5.update_layout(title="NFCI - Condiciones Financieras", template="plotly_dark", height=400)
+    st.plotly_chart(fig5, use_container_width=True)
+
+    fig6 = go.Figure()
+    fig6.add_trace(go.Scatter(x=df_full.index, y=df_full["VIX"], name='VIX', line=dict(color="violet")))
+    fig6.update_layout(title="VIX - Volatilidad Esperada", template="plotly_dark", height=400)
+    st.plotly_chart(fig6, use_container_width=True)
+
+    fig7 = go.Figure()
+    fig7.add_trace(go.Scatter(x=df_full.index, y=df_full["High Yield Spread"], name='HY Spread', line=dict(color="salmon")))
+    fig7.update_layout(title="High Yield Spread", template="plotly_dark", height=400)
+    st.plotly_chart(fig7, use_container_width=True)
