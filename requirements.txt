@@ -1,0 +1,11 @@
+streamlit
+numpy
+pandas
+pandas_datareader
+statsmodels
+scikit-learn
+seaborn
+matplotlib
+scipy
+fredapi
+plotly
