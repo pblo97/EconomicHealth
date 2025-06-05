@@ -1,24 +1,23 @@
-
+import os
+import time
 import numpy as np
 import pandas as pd
-import time
 import datetime as dt
+from datetime import datetime
 
-
-import pandas_datareader.data as web
-import statsmodels.api as sm
-import seaborn as sns
 import matplotlib.pyplot as plt
+import seaborn as sns
+import plotly.graph_objects as go
+
+import statsmodels.api as sm
 from statsmodels.stats.outliers_influence import variance_inflation_factor
 from statsmodels.tsa.statespace.sarimax import SARIMAX
-from fredapi import Fred
-import os
+
 from scipy.stats import pearsonr, spearmanr
 from sklearn.decomposition import PCA
-import pandas_datareader.data as web
-import matplotlib.pyplot as plt
-from datetime import datetime
-import plotly.graph_objects as go
+
+from fredapi import Fred
+import yfinance as yf
 import streamlit as st
 
 # PROYECTO ANATOMIA ECONOMICA 
