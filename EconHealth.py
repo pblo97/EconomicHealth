@@ -17,7 +17,6 @@ from scipy.stats import pearsonr, spearmanr
 from sklearn.decomposition import PCA
 
 from fredapi import Fred
-import yfinance as yf
 import streamlit as st
 
 # PROYECTO ANATOMIA ECONOMICA 
