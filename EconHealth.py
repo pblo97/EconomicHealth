@@ -96,7 +96,7 @@ series = {
 
     # 🦠 Sistema linfático: Cadenas logísticas
     
-    "DTCTHFNM": "Freight Transportation Services Index",
+    "TSIFRGHT": "Freight Transportation Services Index",
     "WPU301": "Truck Transportation PPI",
     "ISRATIO": "Total Business: Inventories to Sales Ratio",
     
