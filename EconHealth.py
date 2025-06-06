@@ -128,7 +128,7 @@ elif sistema == "🫀 Circulatorio":
     
     
     fig1 = go.Figure()
-    fig1.add_trace(go.Scatter(x=df_corazon.index, y=df_corazon['SOFR - EFFR'], name='SOFR - EFFR', line=dict(color="white")))
+    fig1.add_trace(go.Scatter(x=df_full.index, y=df_full['SOFR - EFFR'], name='SOFR - EFFR', line=dict(color="white")))
     fig1.update_layout(title="Spread SOFR vs EFFR", template="plotly_dark", height=400)
     st.plotly_chart(fig1, use_container_width=True)
     
