@@ -73,7 +73,15 @@ series = {
     "HOUST": "Housing Starts",
 
     # 🧠 Volatilidad implícita
-    "VIXCLS": "VIX"
+    "VIXCLS": "VIX",
+
+    "ABCPINUSA" : "Asset-Backed Commercial Paper Outstanding",
+    "COMPOUT": "Commercial Paper Outstanding",
+    "DRTSCILM": "Loan Officer Survey: % Banks Tightening C&I Loans (Large Firms)",
+    "RIFSPPFAAD90NB": "Net Assets of Money Market Funds (AUM)",
+    
+
+
 
     
 }
@@ -219,6 +227,34 @@ elif sistema == "🧪 Inmunológico (Shadow banking)":
     fig15.add_trace(go.Scatter(x=df_full.index, y=df_full['BBB-AAA Spread'], name = "'BBB-AAA Spread'", line = dict(color = "#3A1010")))
     fig15.update_layout(title = "'BBB-AAA Spread'", template = "plotly_dark", height = 800)
     st.plotly_chart(fig15, use_container_width=True)
+
+    fig16 = go.Figure()
+    fig16.add_trace(go.Scatter(x=df_full.index, y=df_full['Loan Officer Survey: % Banks Tightening C&I Loans (Large Firms)'], name="Loan Officer Survey: % Banks Tightening C&I Loans", line = dict(color = "#546086")))
+    fig16.update_layout(title = "Loan Officer Survey: % Banks Tightening C&I Loans", template = "plotly_dark", height = 800)
+    st.plotly_chart(fig16, use_container_width=True)
+
+    fig18 = go.Figure()
+    fig18.add_trace(go.Scatter(x=df_full.index, y=df_full['Net Assets of Money Market Funds (AUM)'], name = "Net Assets of Money Market Funds (AUM)", line = dict(color = "#8D8758")))
+    fig18.update_layout(title = "Net Assets of Money Market Funds (AUM)", template = "plotly_dark", height = 800)
+    st.plotly_chart(fig18, use_container_width=True)
+
+    fig19 = go.Figure()
+    fig19.add_trace(go.Scatter(x=df_full.index, y=df_full['Asset-Backed Commercial Paper Outstanding'], name="Asset-Backed Commercial Paper Outstanding", line = dict(color ="#445D63")))
+    fig19.update_layout(title = "Asset-Backed Commercial Paper Outstanding", template = "plotly_dark", height = 800)
+    st.plotly_chart(fig19, use_container_width=True)
+
+    fig20 = go.Figure()
+    fig20.add_trace(go.Scatter(x=df_full.index, y=df_full["Reverse Repo (ON RRP)"], name='RRP', line=dict(color="orange")))
+    fig20.update_layout(title="Reverse Repo", template="plotly_dark", height=400)
+    st.plotly_chart(fig20, use_container_width=True)
+
+
+
+
+
+
+
+    
 
     
 
