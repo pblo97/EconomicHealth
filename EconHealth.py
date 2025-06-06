@@ -153,7 +153,7 @@ df_full['SOFR-EFFR'] = (
     df_full["Effective Federal Funds Rate (Alt)"]
 )
 
-#Corazon (Liquidez
+"""#Corazon (Liquidez
 df_corazon = df_full[[ 
     "SOFR-EFFR",
     "M2 Money Stock",
@@ -270,6 +270,9 @@ for i in range(3):
 fig1.suptitle("Diagnóstico del Sistema nervioso Económico (Condiciones financieras)", color="white", fontsize=18)
 plt.tight_layout(rect=[0, 0, 1, 0.96])
 st.pyplot(fig1)
+
+"""
+
 
 
 # Configuracion de la app
