@@ -111,7 +111,7 @@ st.title("🧍 Anatomía Económica del Mercado")
 
 sistema = st.sidebar.selectbox(
     "Selecciona un sistema",
-    ["🫀 Circulatorio", "🧠 Nervioso"]
+    ["🫀 Circulatorio", "🧠 Nervioso", "Pulmones"]
 )
 
 # ----------- SISTEMA CIRCULATORIO -------------- #
