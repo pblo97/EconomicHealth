@@ -86,10 +86,11 @@ series = {
 
     "INDPRO": "Industrial Production Index",
     "TCU": "Capacity Utilization: Total Industry",
-    "NAPMNOI": "ISM New Orders Index",
+    "AMTMNO": "Manufacturers' New Orders: Total Manufacturing",
     "IPMAN": "Industrial Production: Manufacturing",
     "IPB50001N": "Industrial Production: Durable Consumer Goods",
-    "IPG331S": "Industrial Production: Mining"
+    "IPG331S": "Industrial Production: Mining",
+    "CMRMTSPL": "Real Manufacturing and Trade Sales"
     
 
     
@@ -283,8 +284,8 @@ elif sistema == "Musculatura (Produccion industrial)":
 
     # Gráfico 3: PMI Manufacturero (NAPMPI)
     fig_m3 = go.Figure()
-    fig_m3.add_trace(go.Scatter(x=df_full.index, y=df_full["ISM New Orders Index"],name="ISM New Orders Index", line=dict(color="#2196F3")))
-    fig_m3.update_layout(title="ISM New Orders Index", template="plotly_dark", height=400)
+    fig_m3.add_trace(go.Scatter(x=df_full.index, y=df_full["Manufacturers' New Orders: Total Manufacturing"],name="Manufacturers' New Orders: Total Manufacturing", line=dict(color="#2196F3")))
+    fig_m3.update_layout(title="Manufacturers' New Orders: Total Manufacturing", template="plotly_dark", height=400)
     st.plotly_chart(fig_m3, use_container_width=True)
 
     # Gráfico 4: Producción Manufacturera, Bienes duraderos y Minería
@@ -294,6 +295,13 @@ elif sistema == "Musculatura (Produccion industrial)":
     fig_m4.add_trace(go.Scatter(x=df_full.index, y=df_full["Industrial Production: Mining"],name="Minería", line=dict(color="#00BCD4")))
     fig_m4.update_layout(title="Subcomponentes de Producción Industrial", template="plotly_dark", height=500)
     st.plotly_chart(fig_m4, use_container_width=True)
+
+    fig_m5 = go.Figure()
+    fig_m5.add_trace(go.Scatter(x=df_full.index, y=df_full["Real Manufacturing and Trade Sales"], name = "Real Manufacturing and Trade Sales", line = dict(color= "#72614F")))
+    fig_m5.update_layout(title = "Real Manufacturing and Trade Sales", template = "plotly_dark", height = 800)
+    st.plotly_chart(fig_m5, use_container_width=True)
+
+    
 
 
     
