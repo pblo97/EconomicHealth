@@ -229,7 +229,7 @@ elif sistema == "🧬 Metabolismo":
     st.plotly_chart(fig13, use_container_width=True)
 
     fig13_1 = go.Figure()
-    fig13_1.add_trace(go.Scatter(x=df_full.index, y=df_full["All Employees, Manufacturing"], title = "Manufacturing Employment", line = dict(color = "#67642D")))
+    fig13_1.add_trace(go.Scatter(x=df_full.index, y=df_full["All Employees, Manufacturing"], name = "Manufacturing Employment", line = dict(color = "#67642D")))
     fig13_1.update_layout(title = "Manufacturing Employment", template = "plotly_dark", height = 800)
     st.plotly_chart(fig13_1, use_container_width=True)
 
