@@ -30,9 +30,8 @@ end = dt.datetime.today()
 series = {
     # 🟦 Tasas clave
     "SOFR": "SOFR",
-    "FEDFUNDS": "Effective Federal Funds Rate",
+    "EFFR": "EFFR",  # Effective Federal Funds Rate (ID oficial simplificado)
     "IORB": "Interest Rate on Reserve Balances",
-    "EFFR": "Effective Federal Funds Rate (Alt)",
 
     # 🟩 Curva de rendimiento y spreads
     "DGS2": "2Y Treasury Yield",
@@ -88,8 +87,8 @@ df_full = df.resample('D').last().ffill().dropna()
 
 
 df_full['SOFR-EFFR'] = (
-    df_full["SOFR (Secured Overnight Financing Rate)"] - 
-    df_full["Effective Federal Funds Rate (Alt)"]
+    df_full["SOFR"] - 
+    df_full["EFFR"]
 )
 
 # Configuracion de la app
