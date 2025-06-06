@@ -108,6 +108,15 @@ series = {
     "DRCCLACBS": "Delinquency Rate on Credit Card Loans",
     "DRSFRMACBS": "Delinquency Rate on Single-Family Mortgages",
 
+    "IPB51222S": "Industrial Production: High-Tech Industries",  # Producción tech intensiva
+    "PNFI": "Private Nonresidential Fixed Investment",  # Inversión privada no residencial
+    "IPOUTBS": "Industrial Production: Business Equipment",  # Producción de bienes de capital
+    "IPN31152N": "Industrial Production: Pharmaceuticals and Medicine",  # Producción farmacéutica
+    "IPB51221RS": "Industrial Production: Semiconductors and Related Devices",  # Semiconductores
+    "IPB51110S": "Industrial Production: Computers and Peripheral Equipment",  # Computadores
+    "IPB5417RS": "Industrial Production: Scientific R&D Services",  # Servicios de I+D
+    "COMPUOT": "New Privately-Owned Housing Units Started: 5 Units or More"  # Innovación en viviendas multifamiliares
+
 
     
 
@@ -157,7 +166,7 @@ st.title("🧍 Anatomía Económica del Mercado")
 
 sistema = st.sidebar.selectbox(
     "Selecciona un sistema",
-    ["General", "🫀 Circulatorio", "🧠 Nervioso", "🫁 Pulmones", "🧬 Metabolismo", "🧪 Inmunológico (Shadow banking)", "Musculatura (Produccion industrial)", "Cadenas logisticas", "Higado (Sistema bancario)"]
+    ["General", "🫀 Circulatorio", "🧠 Nervioso", "🫁 Pulmones", "🧬 Metabolismo", "🧪 Inmunológico (Shadow banking)", "Musculatura (Produccion industrial)", "Cadenas logisticas", "Higado (Sistema bancario)", "Utero (Innovacion y desarollo)"]
 )
 
 # ----------- SISTEMA CIRCULATORIO -------------- #
@@ -392,7 +401,56 @@ elif sistema == "Higado (Sistema bancario)":
     st.plotly_chart(fig_liv6, use_container_width=True)
 
 
+elif sistema == "Utero (Innovacion y desarollo)":
+    st.header("Utero (Innovaciony desarollo)")
 
+    # Gráfico 1: PNFI - Private Nonresidential Fixed Investment
+    fig_u1 = go.Figure()
+    fig_u1.add_trace(go.Scatter(x=df_full.index, y=df_full["Private Nonresidential Fixed Investment"],name="Inversión Fija Privada No Residencial", line=dict(color="#1E88E5")))
+    fig_u1.update_layout(title="Inversión Fija Privada No Residencial", template="plotly_dark", height=400)
+    st.plotly_chart(fig_u1, use_container_width=True)
+
+    # Gráfico 2: IPOUTBS - Industrial Production: Business Equipment
+    fig_u2 = go.Figure()
+    fig_u2.add_trace(go.Scatter(x=df_full.index, y=df_full["Industrial Production: Business Equipment"], name="Producción de Bienes de Capital", line=dict(color="#43A047")))
+    fig_u2.update_layout(title="Producción de Bienes de Capital", template="plotly_dark", height=400)
+    st.plotly_chart(fig_u2, use_container_width=True)
+
+    # Gráfico 3: IPB51222S - High-Tech Industries
+    fig_u3 = go.Figure()
+    fig_u3.add_trace(go.Scatter(x=df_full.index, y=df_full["Industrial Production: High-Tech Industries"],name="Industria Alta Tecnología", line=dict(color="#F4511E")))
+    fig_u3.update_layout(title="Producción en Industrias de Alta Tecnología", template="plotly_dark", height=400)
+    st.plotly_chart(fig_u3, use_container_width=True)
+
+    # Gráfico 4: IPB51221RS - Semiconductores
+    fig_u4 = go.Figure()
+    fig_u4.add_trace(go.Scatter(x=df_full.index, y=df_full["Industrial Production: Semiconductors and Related Devices (Real SA)"],name="Producción de Semiconductores", line=dict(color="#8E24AA")))
+    fig_u4.update_layout(title="Producción de Semiconductores", template="plotly_dark", height=400)
+    st.plotly_chart(fig_u4, use_container_width=True)
+
+    # Gráfico 5: IPB51110S - Computadoras y periféricos
+    fig_u5 = go.Figure()
+    fig_u5.add_trace(go.Scatter(x=df_full.index, y=df_full["Industrial Production: Computers and Peripheral Equipment"],name="Producción de Computadoras", line=dict(color="#00ACC1")))
+    fig_u5.update_layout(title="Producción de Computadoras y Equipos Periféricos", template="plotly_dark", height=400)
+    st.plotly_chart(fig_u5, use_container_width=True)
+
+    # Gráfico 6: IPB5417RS - Servicios de Investigación y Desarrollo
+    fig_u6 = go.Figure()
+    fig_u6.add_trace(go.Scatter(x=df_full.index, y=df_full["Industrial Production: Scientific Research and Development Services"],name="Servicios de I+D", line=dict(color="#6D4C41")))
+    fig_u6.update_layout(title="Producción en Servicios de I+D", template="plotly_dark", height=400)
+    st.plotly_chart(fig_u6, use_container_width=True)
+
+    # Gráfico 7: IPN31152N - Producción Farmacéutica
+    fig_u7 = go.Figure()
+    fig_u7.add_trace(go.Scatter(x=df_full.index, y=df_full["Industrial Production: Pharmaceuticals and Medicine"],name="Producción Farmacéutica", line=dict(color="#C0CA33")))
+    fig_u7.update_layout(title="Producción Farmacéutica", template="plotly_dark", height=400)
+    st.plotly_chart(fig_u7, use_container_width=True)
+
+    # Gráfico 8: COMPUOT - Nuevas Viviendas (5+ Unidades)
+    fig_u8 = go.Figure()
+    fig_u8.add_trace(go.Scatter(x=df_full.index, y=df_full["New Privately-Owned Housing Units Started: 5 Units or More"],name="Nuevas Viviendas Multifamiliares", line=dict(color="#546E7A")))
+    fig_u8.update_layout(title="Nuevas Viviendas de 5 Unidades o Más", template="plotly_dark", height=400)
+    st.plotly_chart(fig_u8, use_container_width=True)
 
 
 
