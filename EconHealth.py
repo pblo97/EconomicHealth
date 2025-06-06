@@ -95,7 +95,7 @@ series = {
     "MANEMP": "All Employees, Manufacturing",
 
     # 🦠 Sistema linfático: Cadenas logísticas
-    "GSCPI": "Global Supply Chain Pressure Index",
+    
     "DTCTHFNM": "Freight Transportation Services Index",
     "WPU301": "Truck Transportation PPI",
     "ISRATIO": "Total Business: Inventories to Sales Ratio",
@@ -321,10 +321,7 @@ elif sistema == "Musculatura (Produccion industrial)":
 
 elif sistema == "Cadenas logisticas":
     st.header("Cadenas Logisticas")
-    fig_l1 = go.Figure()
-    fig_l1.add_trace(go.Scatter(x=df_full.index,y=df_full["Global Supply Chain Pressure Index"],name="GSCPI",line=dict(color="#00BCD4")))
-    fig_l1.update_layout(title="Global Supply Chain Pressure Index", template="plotly_dark", height=400)
-    st.plotly_chart(fig_l1, use_container_width=True)
+    
 
     fig_l2 = go.Figure()
     fig_l2.add_trace(go.Scatter(x=df_full.index,y=df_full["Freight Transportation Services Index"],name="Freight TSI",line=dict(color="#F44336")))
