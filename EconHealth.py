@@ -132,7 +132,7 @@ elif sistema == "🧠 Nervioso":
     st.header("🧠 Sistema Nervioso (Condiciones Financieras)")
 
     fig5 = go.Figure()
-    fig5.add_trace(go.Scatter(x=df_full.index, y=df_full["Chicago Fed Financial Conditions Index"], name='NFCI', line=dict(color="white")))
+    fig5.add_trace(go.Scatter(x=df_full.index, y=df_full["Chicago Fed Financial Conditions Index"], name='NFCI', line=dict(color="orange")))
     fig5.update_layout(title="NFCI - Condiciones Financieras", template="plotly_dark", height=400)
     st.plotly_chart(fig5, use_container_width=True)
 
