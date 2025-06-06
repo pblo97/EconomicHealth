@@ -28,8 +28,8 @@ end = dt.datetime.today()
 
 
 series = {
-        # 🟦 Tasas clave
-    "SOFR": "SOFR (Secured Overnight Financing Rate)",
+    # 🟦 Tasas clave
+    "SOFR": "SOFR",
     "FEDFUNDS": "Effective Federal Funds Rate",
     "IORB": "Interest Rate on Reserve Balances",
     "EFFR": "Effective Federal Funds Rate (Alt)",
@@ -39,7 +39,7 @@ series = {
     "DGS10": "10Y Treasury Yield",
     "DTB3": "3M T-Bill Yield",
     "BAA10Y": "BAA Spread over 10Y Treasury",
-    "BAMLC0A4CBBBEY": "Yield on BBB Corporate Bonds",
+    "BAMLC0A4CBBBEY": "BBB Corporate Bond Yield",
 
     # 🟧 Liquidez bancaria y de mercado
     "RRPONTSYD": "Reverse Repo (ON RRP)",
@@ -58,24 +58,22 @@ series = {
 
     # 🟪 Expectativas macroeconómicas
     "T5YIE": "5Y Breakeven Inflation Rate",
-    "USRECD": "Recession Indicator (NBER Binary)",
+    "USRECD": "Recession Indicator",
     "ICSA": "Initial Jobless Claims",
-    "TEDRATE": "TED Spread (LIBOR - T-Bill 3M)", # 
-     # 🟫 Hogares y empleo
-    "TNWBSHNO": "Household and Nonprofit Net Worth",
-    "AWHAETP": "Avg Weekly Hours of All Employees (Total Private)",
-    
-    # 🟦 Balance del Sistema de la Fed
-    
+    "TEDRATE": "TED Spread",
 
-    # (opcionalmente más)
+    # 🟫 Hogares y empleo
+    "TNWBSHNO": "Household and Nonprofit Net Worth",
+    "AWHAETP": "Avg Weekly Hours (Private Sector)",
+
+    # 🟦 Adicionales útiles
     "UNRATE": "Unemployment Rate",
     "CPIAUCSL": "CPI - All Urban Consumers",
     "PCE": "Personal Consumption Expenditures",
     "HOUST": "Housing Starts",
 
-    'VIXCLS': "VIX"
-    
+    # 🧠 Volatilidad implícita
+    "VIXCLS": "VIX"
 }
 
 data = {}
