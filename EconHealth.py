@@ -86,7 +86,7 @@ series = {
 
     "INDPRO": "Industrial Production Index",
     "TCU": "Capacity Utilization: Total Industry",
-    "NAPMPI": "ISM Manufacturing PMI",
+    "NAPMNOI": "ISM New Orders Index",#similar a PMI, no esta descargable en FRED pero alta correlacion.
     "IPMAN": "Industrial Production: Manufacturing",
     "IPB50001N": "Industrial Production: Durable Consumer Goods",
     "IPG331S": "Industrial Production: Mining"
@@ -283,8 +283,8 @@ elif sistema == "Musculatura (Produccion industrial)":
 
     # Gráfico 3: PMI Manufacturero (NAPMPI)
     fig_m3 = go.Figure()
-    fig_m3.add_trace(go.Scatter(x=df_full.index, y=df_full["ISM Manufacturing PMI"],name="PMI Manufacturero", line=dict(color="#2196F3")))
-    fig_m3.update_layout(title="PMI Manufacturero (ISM)", template="plotly_dark", height=400)
+    fig_m3.add_trace(go.Scatter(x=df_full.index, y=df_full["ISM New Orders Index"],name="ISM New Orders Index", line=dict(color="#2196F3")))
+    fig_m3.update_layout(title="ISM New Orders Index", template="plotly_dark", height=400)
     st.plotly_chart(fig_m3, use_container_width=True)
 
     # Gráfico 4: Producción Manufacturera, Bienes duraderos y Minería
