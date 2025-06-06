@@ -427,7 +427,7 @@ elif sistema == "Utero (Innovacion y desarollo)":
     st.plotly_chart(fig_u4, use_container_width=True)
 
     fig_u5 = go.Figure()
-    fig_u5.add_trace(go.Scatter(x=df_full.index, y=df_full["Real Output: Semiconductor Device Manufacturing"],name="Semiconductores", line=dict(color="#E91E63")))
+    fig_u5.add_trace(go.Scatter(x=df_full.index, y=df_full["Real Sectoral Output for Manufacturing: Semiconductor and Related Device Manufacturing"],name="Semiconductores", line=dict(color="#E91E63")))
     fig_u5.update_layout(title="Producción de Semiconductores", template="plotly_dark", height=400)
     st.plotly_chart(fig_u5, use_container_width=True)
 
