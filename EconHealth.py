@@ -105,6 +105,10 @@ df_corazon = df_full[[
 
 ]]
 
+df_full['2Y Treasury Yield - 10Y Treasury Yield'] = (
+    df_full['2Y Treasury Yield'] - df_full['10Y Treasury Yield']
+)
+
 # Configuracion de la app
 
 st.title("🧍 Anatomía Económica del Mercado")
