@@ -116,7 +116,17 @@ series = {
     "IPUEN334413T011000000": "Real Sectoral Output for Manufacturing: Semiconductor and Related Device Manufacturing",  # Semiconductores
     "IPG3341S": "Industrial Production: Computers and Peripheral Equipment",  # Computadores
     "CES6562440001": "All Employees: Scientific Research and Development Services",  # Servicios de I+D
-    "HOUST5F": "New Privately-Owned Housing Units Started: 5 Units or More"  # Innovación en viviendas multifamiliares
+    "HOUST5F": "New Privately-Owned Housing Units Started: 5 Units or More" , # Innovación en viviendas multifamiliares
+
+    "GDPC1": "Real Gross Domestic Product",
+    "A191RL1Q225SBEA": "Real GDP per Capita",
+    "GPDIC1": "Gross Private Domestic Investment",
+    "TCU": "Capacity Utilization: Total Industry",
+    "PRSFIS": "Potential GDP (CBO Estimate)",
+    "A019RC1Q027SBEA": "Gross Government Investment",
+    "NETEXC": "Net Exports of Goods and Services",
+    "FYFSGDA188S": "Federal Debt to GDP Ratio",
+    "PSAVERT": "Personal Saving Rate"
 
 
     
@@ -167,7 +177,7 @@ st.title("🧍 Anatomía Económica del Mercado")
 
 sistema = st.sidebar.selectbox(
     "Selecciona un sistema",
-    ["General", "🫀 Circulatorio", "🧠 Nervioso", "🫁 Pulmones", "🧬 Metabolismo", "🧪 Inmunológico (Shadow banking)", "Musculatura (Produccion industrial)", "Cadenas logisticas", "Higado (Sistema bancario)", "Utero (Innovacion y desarollo)"]
+    ["General", "🫀 Circulatorio", "🧠 Nervioso", "🫁 Pulmones", "🧬 Metabolismo", "🧪 Inmunológico (Shadow banking)", "Musculatura (Produccion industrial)", "Cadenas logisticas", "Higado (Sistema bancario)", "Utero (Innovacion y desarollo)", "Sistema Oseo(Estructura economica)"]
 )
 
 # ----------- SISTEMA CIRCULATORIO -------------- #
@@ -446,6 +456,53 @@ elif sistema == "Utero (Innovacion y desarollo)":
     fig_u8.update_layout(title="Innovación en Viviendas Multifamiliares", template="plotly_dark", height=400)
     st.plotly_chart(fig_u8, use_container_width=True)
 
+elif sistema == "Sistema Oseo(Estructura economica)":
+    st.header("Sistema Oseo (Estructura económica)")
+
+    fig_s1 = go.Figure()
+    fig_s1.add_trace(go.Scatter(x=df_full.index, y=df_full["Real Gross Domestic Product"], name="Real GDP", line=dict(color="#2196F3")))
+    fig_s1.update_layout(title="Real Gross Domestic Product", template="plotly_dark", height=400)
+    st.plotly_chart(fig_s1, use_container_width=True)
+
+    fig_s2 = go.Figure()
+    fig_s2.add_trace(go.Scatter(x=df_full.index, y=df_full["Real GDP per Capita"], name="GDP per Capita", line=dict(color="#4CAF50")))
+    fig_s2.update_layout(title="Real GDP per Capita", template="plotly_dark", height=400)
+    st.plotly_chart(fig_s2, use_container_width=True)
+
+    fig_s3 = go.Figure()
+    fig_s3.add_trace(go.Scatter(x=df_full.index, y=df_full["Gross Private Domestic Investment"], name="Private Investment", line=dict(color="#FFC107")))
+    fig_s3.update_layout(title="Gross Private Domestic Investment", template="plotly_dark", height=400)
+    st.plotly_chart(fig_s3, use_container_width=True)
+
+    fig_s4 = go.Figure()
+    fig_s4.add_trace(go.Scatter(x=df_full.index, y=df_full["Capacity Utilization: Total Industry"], name="Capacity Utilization", line=dict(color="#E91E63")))
+    fig_s4.update_layout(title="Capacity Utilization", template="plotly_dark", height=400)
+    st.plotly_chart(fig_s4, use_container_width=True)
+
+    fig_s5 = go.Figure()
+    fig_s5.add_trace(go.Scatter(x=df_full.index, y=df_full["Potential GDP (CBO Estimate)"], name="Potential GDP", line=dict(color="#FF5722")))
+    fig_s5.update_layout(title="Potential GDP (CBO)", template="plotly_dark", height=400)
+    st.plotly_chart(fig_s5, use_container_width=True)
+
+    fig_s6 = go.Figure()
+    fig_s6.add_trace(go.Scatter(x=df_full.index, y=df_full["Gross Government Investment"], name="Gov Investment", line=dict(color="#9C27B0")))
+    fig_s6.update_layout(title="Gross Government Investment", template="plotly_dark", height=400)
+    st.plotly_chart(fig_s6, use_container_width=True)
+
+    fig_s7 = go.Figure()
+    fig_s7.add_trace(go.Scatter(x=df_full.index, y=df_full["Net Exports of Goods and Services"], name="Net Exports", line=dict(color="#00BCD4")))
+    fig_s7.update_layout(title="Net Exports of Goods and Services", template="plotly_dark", height=400)
+    st.plotly_chart(fig_s7, use_container_width=True)
+
+    fig_s8 = go.Figure()
+    fig_s8.add_trace(go.Scatter(x=df_full.index, y=df_full["Federal Debt to GDP Ratio"], name="Debt to GDP", line=dict(color="#8BC34A")))
+    fig_s8.update_layout(title="Federal Debt to GDP Ratio", template="plotly_dark", height=400)
+    st.plotly_chart(fig_s8, use_container_width=True)
+
+    fig_s9 = go.Figure()
+    fig_s9.add_trace(go.Scatter(x=df_full.index, y=df_full["Personal Saving Rate"], name="Savings Rate", line=dict(color="#795548")))
+    fig_s9.update_layout(title="Personal Saving Rate", template="plotly_dark", height=400)
+    st.plotly_chart(fig_s9, use_container_width=True)
 
 
 
