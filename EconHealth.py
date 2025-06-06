@@ -109,7 +109,7 @@ series = {
     "DRSFRMACBS": "Delinquency Rate on Single-Family Mortgages",
 
     
-    "IPXHSMD": "Industrial Production: Total Excluding Selected High-Tech and Motor Vehicles & Parts",
+    "IPX5VHT2N": "Industrial Production: Total Excluding Selected High-Tech and Motor Vehicles & Parts",
     "PNFIC1": "Private Nonresidential Fixed Investment",  # Inversión privada no residencial
     "IPBUSEQ": "Industrial Production: Business Equipment",  # Producción de bienes de capital
     "IPG3254S": "Industrial Production: Pharmaceuticals and Medicine",  # Producción farmacéutica
