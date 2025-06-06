@@ -39,6 +39,7 @@ series = {
     "DTB3": "3M T-Bill Yield",
     "BAA10Y": "BAA Spread over 10Y Treasury",
     "BAMLC0A4CBBBEY": "BBB Corporate Bond Yield",
+    "DAAA": "AAA Corporate Bond Yield",
 
     # 🟧 Liquidez bancaria y de mercado
     "RRPONTSYD": "Reverse Repo (ON RRP)",
@@ -73,6 +74,8 @@ series = {
 
     # 🧠 Volatilidad implícita
     "VIXCLS": "VIX"
+
+    
 }
 
 data = {}
@@ -109,13 +112,16 @@ df_full['2Y Treasury Yield - 10Y Treasury Yield'] = (
     df_full['2Y Treasury Yield'] - df_full['10Y Treasury Yield']
 )
 
+df_full['BBB-AAA Spread'] = (
+    df_full['BBB Corporate Bond Yield'] - df_full['AAA Corporate Bond Yield']
+)
 # Configuracion de la app
 
 st.title("🧍 Anatomía Económica del Mercado")
 
 sistema = st.sidebar.selectbox(
     "Selecciona un sistema",
-    ["General", "🫀 Circulatorio", "🧠 Nervioso", "🫁 Pulmones", "🧬 Metabolismo"]
+    ["General", "🫀 Circulatorio", "🧠 Nervioso", "🫁 Pulmones", "🧬 Metabolismo", "🧪 Inmunológico (Shadow banking)"]
 )
 
 # ----------- SISTEMA CIRCULATORIO -------------- #
@@ -201,6 +207,23 @@ elif sistema == "🧬 Metabolismo":
     fig13.add_trace(go.Scatter(x=df_full.index, y=df_full["Avg Weekly Hours (Private Sector)"], name= "Promedio horas trabajadas sector privada", line = dict(color = "#B6A268")))
     fig13.update_layout(title = "Promedio horas trabajadas sector privada", template = "plotly_dark", height = 800)
     st.plotly_chart(fig13, use_container_width=True)
+
+elif sistema == "🧪 Inmunológico (Shadow banking)":
+    st.header("Inmunológico (Shadow banking)")
+    fig14 = go.Figure()
+    fig14.add_trace(go.Scatter(x=df_full.index, y=df_full["Commercial Paper Outstanding"], name = "Credito fuera del sistema", line = dict(color = "#60695F")))
+    fig14.update_layout(title = "Credito fuera del sistema", template = "plotly_dark", height = 800)
+    st.plotly_chart(fig14, use_container_width=True)
+
+    fig15 = go.Figure()
+    fig15.add_trace(go.Scatter(x=df_full.index, y=df_full['BBB-AAA Spread'], name = "'BBB-AAA Spread'", line = dict(color = "#3A1010")))
+    fig15.update_layout(title = "'BBB-AAA Spread'", template = "plotly_dark", height = 800)
+    st.plotly_chart(fig15, use_container_width=True)
+
+    
+
+
+
 
     
 
