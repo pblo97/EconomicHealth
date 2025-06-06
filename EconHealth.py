@@ -145,3 +145,11 @@ elif sistema == "🧠 Nervioso":
     fig7.update_layout(title="High Yield Spread", template="plotly_dark", height=400)
     st.plotly_chart(fig7, use_container_width=True)
 
+elif sistema == "Pulmones":
+    st.header("Pulmones (Curva de rendimientos)")
+
+    fig8 = go.Figure()
+    fig8.add_trace(go.Scatter(x=df_full.index, y=df_full['2-Year-Treasury - 10-Year Treasury'], name = '2Y - 10Y', line = dict(color = "red")))
+    fig8.update_layout(title="Curva de Rendimientos", template="plotly_dark", height = 400)
+    st.plotly_chart(fig8, use_container_width=True)
+
