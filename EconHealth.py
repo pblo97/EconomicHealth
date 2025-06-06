@@ -72,7 +72,7 @@ series = {
     "PCE": "Personal Consumption Expenditures",
     "HOUST": "Housing Starts",
 
-    # 🧠 Volatilidad implícita
+    # Volatilidad implícita
     "VIXCLS": "VIX",
 
     
@@ -80,10 +80,17 @@ series = {
     "DRTSCILM": "Loan Officer Survey: % Banks Tightening C&I Loans (Large Firms)",
     "RIFSPPFAAD90NB": "Net Assets of Money Market Funds (AUM)",
     "H8B1058NCBCAG": "Consumer Loans by Finance Companies",
-    "NONREVSL": "Nonrevolving Consumer Credit"
+    "NONREVSL": "Nonrevolving Consumer Credit",
+
+    #Produccion industrial
+
+    "INDPRO": "Industrial Production Index",
+    "TCU": "Capacity Utilization: Total Industry",
+    "NAPMPI": "ISM Manufacturing PMI",
+    "IPMAN": "Industrial Production: Manufacturing",
+    "IPB50001N": "Industrial Production: Durable Consumer Goods",
+    "IPG331S": "Industrial Production: Mining"
     
-
-
 
     
 }
@@ -131,7 +138,7 @@ st.title("🧍 Anatomía Económica del Mercado")
 
 sistema = st.sidebar.selectbox(
     "Selecciona un sistema",
-    ["General", "🫀 Circulatorio", "🧠 Nervioso", "🫁 Pulmones", "🧬 Metabolismo", "🧪 Inmunológico (Shadow banking)"]
+    ["General", "🫀 Circulatorio", "🧠 Nervioso", "🫁 Pulmones", "🧬 Metabolismo", "🧪 Inmunológico (Shadow banking)", "Musculatura (Produccion industrial)"]
 )
 
 # ----------- SISTEMA CIRCULATORIO -------------- #
@@ -259,7 +266,35 @@ elif sistema == "🧪 Inmunológico (Shadow banking)":
     fig22.add_trace(go.Scatter(x=df_full.index, y = df_full['Nonrevolving Consumer Credit'], name = "Nonrevolving Consumer Credit", line = dict(color = "#5D6531")))
     fig22.update_layout(title = "Nonrevolving Consumer Credit", template = "plotly_dark", height = 800)
     st.plotly_chart(fig22, use_container_width=True)
-    
+
+elif sistema == "Musculatura (Produccion industrial)":
+    st.header("Musculatura (Produccion industrial)")
+    # Gráfico 1: Índice de Producción Industrial (INDPRO)
+    fig_m1 = go.Figure()
+    fig_m1.add_trace(go.Scatter(x=df_full.index, y=df_full["Industrial Production Index"],name="Industrial Production Index", line=dict(color="#4CAF50")))
+    fig_m1.update_layout(title="Producción Industrial Total", template="plotly_dark", height=400)
+    st.plotly_chart(fig_m1, use_container_width=True)
+
+    # Gráfico 2: Utilización de la Capacidad Instalada (TCU)
+    fig_m2 = go.Figure()
+    fig_m2.add_trace(go.Scatter(x=df_full.index, y=df_full["Capacity Utilization: Total Industry"],name="Capacidad Instalada", line=dict(color="#FFC107")))
+    fig_m2.update_layout(title="Utilización de Capacidad Total", template="plotly_dark", height=400)
+    st.plotly_chart(fig_m2, use_container_width=True)
+
+    # Gráfico 3: PMI Manufacturero (NAPMPI)
+    fig_m3 = go.Figure()
+    fig_m3.add_trace(go.Scatter(x=df_full.index, y=df_full["ISM Manufacturing PMI"],name="PMI Manufacturero", line=dict(color="#2196F3")))
+    fig_m3.update_layout(title="PMI Manufacturero (ISM)", template="plotly_dark", height=400)
+    st.plotly_chart(fig_m3, use_container_width=True)
+
+    # Gráfico 4: Producción Manufacturera, Bienes duraderos y Minería
+    fig_m4 = go.Figure()
+    fig_m4.add_trace(go.Scatter(x=df_full.index, y=df_full["Industrial Production: Manufacturing"], name="Manufactura", line=dict(color="#E91E63")))
+    fig_m4.add_trace(go.Scatter(x=df_full.index, y=df_full["Industrial Production: Durable Consumer Goods"],name="Bienes Duraderos", line=dict(color="#9C27B0")))
+    fig_m4.add_trace(go.Scatter(x=df_full.index, y=df_full["Industrial Production: Mining"],name="Minería", line=dict(color="#00BCD4")))
+    fig_m4.update_layout(title="Subcomponentes de Producción Industrial", template="plotly_dark", height=500)
+    st.plotly_chart(fig_m4, use_container_width=True)
+
 
     
 
