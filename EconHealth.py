@@ -103,7 +103,7 @@ series = {
 
     "NONREVSL": "Nonrevolving Consumer Credit",
     "H8B1058NCBCAG": "Consumer Loans by Finance Companies",
-    "BTFPAMOUNTS": "Bank Term Funding Program Usage",
+    "H41RESPPALDKNWW": "Bank Term Funding Program Usage",
     "REVOLSL": "Revolving Consumer Credit",
     "DRCCLACBS": "Delinquency Rate on Credit Card Loans",
     "DRSFRMACBS": "Delinquency Rate on Single-Family Mortgages",
