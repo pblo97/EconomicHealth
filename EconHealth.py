@@ -157,7 +157,7 @@ st.title("🧍 Anatomía Económica del Mercado")
 
 sistema = st.sidebar.selectbox(
     "Selecciona un sistema",
-    ["General", "🫀 Circulatorio", "🧠 Nervioso", "🫁 Pulmones", "🧬 Metabolismo", "🧪 Inmunológico (Shadow banking)", "Musculatura (Produccion industrial)", "Cadenas logisticas"]
+    ["General", "🫀 Circulatorio", "🧠 Nervioso", "🫁 Pulmones", "🧬 Metabolismo", "🧪 Inmunológico (Shadow banking)", "Musculatura (Produccion industrial)", "Cadenas logisticas", "Higado (Sistema bancario)"]
 )
 
 # ----------- SISTEMA CIRCULATORIO -------------- #
@@ -358,8 +358,7 @@ elif sistema == "Higado (Sistema bancario)":
 
     fig_liv1 = go.Figure()
     fig_liv1.add_trace(go.Scatter(
-    x=df_full.index,
-    y=df_full["Nonrevolving Consumer Credit"],name="Crédito No Revolvente",line=dict(color="#8BC34A")))
+    x=df_full.index,y=df_full["Nonrevolving Consumer Credit"],name="Crédito No Revolvente",line=dict(color="#8BC34A")))
     fig_liv1.update_layout(title="Nonrevolving Consumer Credit", template="plotly_dark", height=400)
     st.plotly_chart(fig_liv1, use_container_width=True)
 
