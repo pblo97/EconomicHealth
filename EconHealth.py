@@ -92,7 +92,7 @@ series = {
     "IPG331S": "Industrial Production: Mining",
     "CMRMTSPL": "Real Manufacturing and Trade Sales",
     "BUSINV" : "Total Business Inventories",
-    "MANEMP": "Manufacturing Employment"
+    "MANEMP": "All Employees, Manufacturing"
     
 
     
@@ -214,22 +214,22 @@ elif sistema == "🫁 Pulmones":
 elif sistema == "🧬 Metabolismo":
     st.header("Metabolismo (Empleo y actividad)")
     fig11 = go.Figure()
-    fig11.add_trace(go.Scatter(x=df_full.index, y=df_full["Initial Jobless Claims"], name = "Solicitud seguro desempleo por primera vez en una seman", line = dict(color = "#845A5A")))
+    fig11.add_trace(go.Scatter(x=df_full.index, y=df_full["Initial Jobless Claims"], name = "Initial Jobless Claims", line = dict(color = "#845A5A")))
     fig11.update_layout(title = "Solicitud seguro desempleo por primera vez en una seman", template = "plotly_dark", height = 800)
     st.plotly_chart(fig11, use_container_width=True)
 
     fig12 = go.Figure()
-    fig12.add_trace(go.Scatter(x=df_full.index, y=df_full["Personal Consumption Expenditures"], name = "Consumo", line = dict(color = "#555C78")))
+    fig12.add_trace(go.Scatter(x=df_full.index, y=df_full["Personal Consumption Expenditures"], name = "Personal Consumption Expenditure", line = dict(color = "#555C78")))
     fig12.update_layout(title = "Consumo", template = "plotly_dark", height = 800)
     st.plotly_chart(fig12, use_container_width=True)
 
     fig13 = go.Figure()
-    fig13.add_trace(go.Scatter(x=df_full.index, y=df_full["Avg Weekly Hours (Private Sector)"], name= "Promedio horas trabajadas sector privada", line = dict(color = "#B6A268")))
+    fig13.add_trace(go.Scatter(x=df_full.index, y=df_full["Avg Weekly Hours (Private Sector)"], name= "Avg Weekly Hours (Private Sector)", line = dict(color = "#B6A268")))
     fig13.update_layout(title = "Promedio horas trabajadas sector privada", template = "plotly_dark", height = 800)
     st.plotly_chart(fig13, use_container_width=True)
 
     fig13_1 = go.Figure()
-    fig13_1.add_trace(go.Scatter(x=df_full.index, y=df_full["Manufacturing Employment"], title = "Manufacturing Employment", line = dict(color = "#67642D")))
+    fig13_1.add_trace(go.Scatter(x=df_full.index, y=df_full["All Employees, Manufacturing"], title = "Manufacturing Employment", line = dict(color = "#67642D")))
     fig13_1.update_layout(title = "Manufacturing Employment", template = "plotly_dark", height = 800)
     st.plotly_chart(fig13_1, use_container_width=True)
 
