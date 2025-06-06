@@ -81,6 +81,7 @@ series = {
     "RIFSPPFAAD90NB": "Net Assets of Money Market Funds (AUM)",
     "H8B1058NCBCAG": "Consumer Loans by Finance Companies",
     "NONREVSL": "Nonrevolving Consumer Credit",
+    "BTFPAMOUNTS" : "Bank Term Funding Program Usage",
 
     #Produccion industrial
 
@@ -99,6 +100,15 @@ series = {
     "TSIFRGHT": "Freight Transportation Services Index",
     "WPU301": "Truck Transportation PPI",
     "ISRATIO": "Total Business: Inventories to Sales Ratio",
+
+    "NONREVSL": "Nonrevolving Consumer Credit",
+    "H8B1058NCBCAG": "Consumer Loans by Finance Companies",
+    "BTFPAMOUNTS": "Bank Term Funding Program Usage",
+    "REVOLSL": "Revolving Consumer Credit",
+    "DRCCLACBS": "Delinquency Rate on Credit Card Loans",
+    "DRSFRMACBS": "Delinquency Rate on Single-Family Mortgages",
+
+
     
 
     
@@ -280,6 +290,11 @@ elif sistema == "🧪 Inmunológico (Shadow banking)":
     fig22.add_trace(go.Scatter(x=df_full.index, y = df_full['Nonrevolving Consumer Credit'], name = "Nonrevolving Consumer Credit", line = dict(color = "#5D6531")))
     fig22.update_layout(title = "Nonrevolving Consumer Credit", template = "plotly_dark", height = 800)
     st.plotly_chart(fig22, use_container_width=True)
+    
+    fig23 = go.Figure()
+    fig23.add_trace(go.Scatter(x=df_full.index, y=df_full['Bank Term Funding Program Usage'], name="Bank Term Funding Program Usage", list = dict(color = "#36375D")))
+    fig23.update_layout(title = "Bank Term Funding Program Usage", template = "plotly_dark", height = 800)
+    st.plotly_chart(fig23, use_container_width=True)
 
 elif sistema == "Musculatura (Produccion industrial)":
     st.header("Musculatura (Produccion industrial)")
@@ -337,6 +352,46 @@ elif sistema == "Cadenas logisticas":
     fig_l4.add_trace(go.Scatter(x=df_full.index,y=df_full["Total Business: Inventories to Sales Ratio"],name="Inventories/Sales Ratio",line=dict(color="#4CAF50")))
     fig_l4.update_layout(title="Inventories to Sales Ratio", template="plotly_dark", height=400)
     st.plotly_chart(fig_l4, use_container_width=True)
+
+elif sistema == "Higado (Sistema bancario)":
+    st.header("Higado (sistema bancario)")
+
+    fig_liv1 = go.Figure()
+    fig_liv1.add_trace(go.Scatter(
+    x=df_full.index,
+    y=df_full["Nonrevolving Consumer Credit"],name="Crédito No Revolvente",line=dict(color="#8BC34A")))
+    fig_liv1.update_layout(title="Nonrevolving Consumer Credit", template="plotly_dark", height=400)
+    st.plotly_chart(fig_liv1, use_container_width=True)
+
+# Consumer Loans by Finance Companies
+    fig_liv2 = go.Figure()
+    fig_liv2.add_trace(go.Scatter(x=df_full.index,y=df_full["Consumer Loans by Finance Companies"],name="Préstamos por Compañías Financieras",line=dict(color="#00ACC1")))
+    fig_liv2.update_layout(title="Consumer Loans by Finance Companies", template="plotly_dark", height=400)
+    st.plotly_chart(fig_liv2, use_container_width=True)
+
+# Bank Term Funding Program (BTFP) Usage
+    fig_liv3 = go.Figure()
+    fig_liv3.add_trace(go.Scatter(x=df_full.index,y=df_full["Bank Term Funding Program Usage"],name="Uso del BTFP",line=dict(color="#FF8F00")))
+    fig_liv3.update_layout(title="Bank Term Funding Program Usage (BTFP)", template="plotly_dark", height=400)
+    st.plotly_chart(fig_liv3, use_container_width=True)
+
+    fig_liv4 = go.Figure()
+    fig_liv4.add_trace(go.Scatter(x=df_full.index,y=df_full["Revolving Consumer Credit"],name="Crédito Revolvente",line=dict(color="#AB47BC")))
+    fig_liv4.update_layout(title="Revolving Consumer Credit", template="plotly_dark", height=400)
+    st.plotly_chart(fig_liv4, use_container_width=True)
+
+# Delinquency Rate - Credit Card Loans
+    fig_liv5 = go.Figure()
+    fig_liv5.add_trace(go.Scatter(x=df_full.index,y=df_full["Delinquency Rate on Credit Card Loans"],name="Morosidad Tarjetas de Crédito",line=dict(color="#EF5350")))
+    fig_liv5.update_layout(title="Delinquency Rate - Credit Card Loans", template="plotly_dark", height=400)
+    st.plotly_chart(fig_liv5, use_container_width=True)
+
+# Delinquency Rate - Mortgages
+    fig_liv6 = go.Figure()
+    fig_liv6.add_trace(go.Scatter(x=df_full.index, y=df_full["Delinquency Rate on Single-Family Mortgages"],name="Morosidad Hipotecas Residenciales",line=dict(color="#5C6BC0")))
+    fig_liv6.update_layout(title="Delinquency Rate - Single-Family Mortgages", template="plotly_dark", height=400)
+    st.plotly_chart(fig_liv6, use_container_width=True)
+
 
 
 
