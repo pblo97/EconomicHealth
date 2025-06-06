@@ -125,7 +125,7 @@ if sistema == "🢀 Circulatorio":
     
 
     fig2 = go.Figure()
-    fig2.add_trace(go.Scatter(x=df_corazon.index, y=df_corazon["M2 Money Stock"], name='M2', line=dict(color="cyan")))
+    fig2.add_trace(go.Scatter(x=df_full.index, y=df_full["M2 Money Stock"], name='M2', line=dict(color="cyan")))
     fig2.update_layout(title="M2 Money Stock", template="plotly_dark", height=400)
     st.plotly_chart(fig2, use_container_width=True)
 
@@ -156,4 +156,16 @@ elif sistema == "Pulmones":
     fig8.add_trace(go.Scatter(x=df_full.index, y=df_full['2Y Treasury Yield - 10Y Treasury Yield'], name = '2Y - 10Y', line = dict(color = "red")))
     fig8.update_layout(title="Curva de Rendimientos", template="plotly_dark", height = 400)
     st.plotly_chart(fig8, use_container_width=True)
+
+    fig9 = go.Figure()
+    fig9.add_trace(go.Scatter(x=df_full.index, y=df_full["BAA Spread over 10Y Treasury"], name = "BAA spread", line = dict(color = "violet")))
+    fig9.update_layout(title="BAA Spread", template="plotly_dark", height =400)
+    st.plotly_chart(fig9, use_container_width=True)
+
+    fig10 = go.Figure()
+    fig10.add_trace(go.Scatter(x = df_full["Total Bank Credit"], name = "Credito bancario total", line = dict(color = "green") ))
+    fig10.update_layout(title = "Credito", template = "plotly_darl", height = 800)
+    st.plotly_chart(fig10, use_container_width=True)
+
+
 
