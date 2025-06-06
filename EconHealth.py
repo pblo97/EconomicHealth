@@ -92,7 +92,13 @@ series = {
     "IPG331S": "Industrial Production: Mining",
     "CMRMTSPL": "Real Manufacturing and Trade Sales",
     "BUSINV" : "Total Business Inventories",
-    "MANEMP": "All Employees, Manufacturing"
+    "MANEMP": "All Employees, Manufacturing",
+
+    # 🦠 Sistema linfático: Cadenas logísticas
+    "GSCPI": "Global Supply Chain Pressure Index",
+    "DTCTHFNM": "Freight Transportation Services Index",
+    "WPU301": "Truck Transportation PPI",
+    "ISRATIO": "Total Business: Inventories to Sales Ratio",
     
 
     
@@ -312,6 +318,30 @@ elif sistema == "Musculatura (Produccion industrial)":
     fig_m6.add_trace(go.Scatter(x=df_full.index, y=df_full["Total Business Inventories"], name = "Total Business Inventories", line = dict(color = "#4A2D2D")))
     fig_m6.update_layout(title = "Total Business Inventories", template = "plotly_dark",height = 800)
     st.plotly_chart(fig_m6, use_container_width=True)
+
+elif sistema == "Cadenas logisticas":
+    st.header("Cadenas Logisticas")
+    fig_l1 = go.Figure()
+    fig_l1.add_trace(go.Scatter(x=df_full.index,y=df_full["Global Supply Chain Pressure Index"],name="GSCPI",line=dict(color="#00BCD4")))
+    fig_l1.update_layout(title="Global Supply Chain Pressure Index", template="plotly_dark", height=400)
+    st.plotly_chart(fig_l1, use_container_width=True)
+
+    fig_l2 = go.Figure()
+    fig_l2.add_trace(go.Scatter(x=df_full.index,y=df_full["Freight Transportation Services Index"],name="Freight TSI",line=dict(color="#F44336")))
+    fig_l2.update_layout(title="Freight Transportation Services Index", template="plotly_dark", height=400)
+    st.plotly_chart(fig_l2, use_container_width=True)
+
+    fig_l3 = go.Figure()
+    fig_l3.add_trace(go.Scatter(x=df_full.index,y=df_full["Truck Transportation PPI"],name="Truck PPI",line=dict(color="#9C27B0")))
+    fig_l3.update_layout(title="Truck Transportation PPI", template="plotly_dark", height=400)
+    st.plotly_chart(fig_l3, use_container_width=True)
+
+    fig_l4 = go.Figure()
+    fig_l4.add_trace(go.Scatter(x=df_full.index,y=df_full["Total Business: Inventories to Sales Ratio"],name="Inventories/Sales Ratio",line=dict(color="#4CAF50")))
+    fig_l4.update_layout(title="Inventories to Sales Ratio", template="plotly_dark", height=400)
+    st.plotly_chart(fig_l4, use_container_width=True)
+
+
 
 
 
