@@ -90,7 +90,9 @@ series = {
     "IPMAN": "Industrial Production: Manufacturing",
     "IPB50001N": "Industrial Production: Durable Consumer Goods",
     "IPG331S": "Industrial Production: Mining",
-    "CMRMTSPL": "Real Manufacturing and Trade Sales"
+    "CMRMTSPL": "Real Manufacturing and Trade Sales",
+    "BUSINV" : "Total Business Inventories",
+    "MANEMP": "Manufacturing Employment"
     
 
     
@@ -226,6 +228,11 @@ elif sistema == "🧬 Metabolismo":
     fig13.update_layout(title = "Promedio horas trabajadas sector privada", template = "plotly_dark", height = 800)
     st.plotly_chart(fig13, use_container_width=True)
 
+    fig13_1 = go.Figure()
+    fig13_1.add_trace(go.Scatter(x=df_full.index, y=df_full["Manufacturing Employment"], title = "Manufacturing Employment", line = dict(color = "#67642D")))
+    fig13_1.update_layout(title = "Manufacturing Employment", template = "plotly_dark", height = 800)
+    st.plotly_chart(fig13_1, use_container_width=True)
+
 elif sistema == "🧪 Inmunológico (Shadow banking)":
     st.header("Inmunológico (Shadow banking)")
     fig14 = go.Figure()
@@ -301,7 +308,14 @@ elif sistema == "Musculatura (Produccion industrial)":
     fig_m5.update_layout(title = "Real Manufacturing and Trade Sales", template = "plotly_dark", height = 800)
     st.plotly_chart(fig_m5, use_container_width=True)
 
-    
+    fig_m6 = go.Figure()
+    fig_m6.add_trace(go.Scatter(x=df_full.index, y=df_full["Total Business Inventories"], name = "Total Business Inventories", line = dict(color = "#4A2D2D")))
+    fig_m6.update_layout(title = "Total Business Inventories", template = "plotly_dark",height = 800)
+    st.plotly_chart(fig_m6, use_container_width=True)
+
+
+
+
 
 
     
