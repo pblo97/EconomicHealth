@@ -115,19 +115,37 @@ st.title("🧍 Anatomía Económica del Mercado")
 
 sistema = st.sidebar.selectbox(
     "Selecciona un sistema",
-    ["🫀 Circulatorio", "🧠 Nervioso", "Pulmones"]
+    ["General", "🫀 Circulatorio", "🧠 Nervioso", "Pulmones"]
 )
 
 # ----------- SISTEMA CIRCULATORIO -------------- #
-if sistema == "🢀 Circulatorio":
-    st.header("🫀 Sistema Circulatorio (Liquidez)")
+if sistema == "General":
 
+    "Sistema de analisis de inversion"
+
+
+elif sistema == "🫀 Circulatorio":
     
-
+    
+    fig1 = go.Figure()
+    fig1.add_trace(go.Scatter(x=df_corazon.index, y=df_corazon['SOFR - EFFR'], name='SOFR - EFFR', line=dict(color="white")))
+    fig1.update_layout(title="Spread SOFR vs EFFR", template="plotly_dark", height=400)
+    st.plotly_chart(fig1, use_container_width=True)
+    
     fig2 = go.Figure()
     fig2.add_trace(go.Scatter(x=df_full.index, y=df_full["M2 Money Stock"], name='M2', line=dict(color="cyan")))
     fig2.update_layout(title="M2 Money Stock", template="plotly_dark", height=400)
     st.plotly_chart(fig2, use_container_width=True)
+
+    fig3 = go.Figure()
+    fig3.add_trace(go.Scatter(x=df_full.index, y=df_full["Reverse Repo (ON RRP)"], name='RRP', line=dict(color="orange")))
+    fig3.update_layout(title="Reverse Repo", template="plotly_dark", height=400)
+    st.plotly_chart(fig3, use_container_width=True)
+
+    fig4 = go.Figure()
+    fig4.add_trace(go.Scatter(x=df_full.index, y=df_full["Reserve Balances with Federal Reserve Banks"], name='Reservas', line=dict(color="lightgreen")))
+    fig4.update_layout(title="Reservas Bancarias", template="plotly_dark", height=400)
+    st.plotly_chart(fig4, use_container_width=True) 
 
 
 # ----------- SISTEMA NERVIOSO -------------- #
@@ -163,8 +181,8 @@ elif sistema == "Pulmones":
     st.plotly_chart(fig9, use_container_width=True)
 
     fig10 = go.Figure()
-    fig10.add_trace(go.Scatter(x = df_full["Total Bank Credit"], name = "Credito bancario total", line = dict(color = "green") ))
-    fig10.update_layout(title = "Credito", template = "plotly_darl", height = 800)
+    fig10.add_trace(go.Scatter(x = df_full.index, y = df_full["Total Bank Credit"], name = "Credito bancario total", line = dict(color = "green") ))
+    fig10.update_layout(title = "Credito", template = "plotly_dark", height = 800)
     st.plotly_chart(fig10, use_container_width=True)
 
 
