@@ -188,8 +188,8 @@ elif sistema == "🫁 Pulmones":
 elif sistema == "🧬 Metabolismo":
     st.header("Metabolismo (Empleo y actividad)")
     fig11 = go.Figure()
-    fig11.add_trace(go.Scatter(x=df_full.index, y=df_full["Initial Jobless Claims"], name = "Desempleo", line = dict(color = "#845A5A")))
-    fig11.update_layout(title = "Desempleo", template = "plotly_dark", height = 800)
+    fig11.add_trace(go.Scatter(x=df_full.index, y=df_full["Initial Jobless Claims"], name = "Solicitud seguro desempleo por primera vez en una seman", line = dict(color = "#845A5A")))
+    fig11.update_layout(title = "Solicitud seguro desempleo por primera vez en una seman", template = "plotly_dark", height = 800)
     st.plotly_chart(fig11, use_container_width=True)
 
     fig12 = go.Figure()
