@@ -78,7 +78,12 @@ series = {
 data = {}
 
 for series_id, name in series.items():
-    data[name] = fred.get_series(series_id, start, end)
+    try:
+        data[name] = fred.get_series(series_id, start, end)
+        print(f"Descargado: {series_id} - {name}")
+    except ValueError as e:
+        print(f"Error con la serie {series_id} - {name}: {e}")
+    
 
 df = pd.DataFrame(data)
 df.index = pd.to_datetime(df.index)
