@@ -121,7 +121,7 @@ if sistema == "🢀 Circulatorio":
     
 
     fig2 = go.Figure()
-    fig2.add_trace(go.Scatter(x=df_full.index, y=df_full["M2 Money Stock"], name='M2', line=dict(color="cyan")))
+    fig2.add_trace(go.Scatter(x=df_corazon.index, y=df_corazon["M2 Money Stock"], name='M2', line=dict(color="cyan")))
     fig2.update_layout(title="M2 Money Stock", template="plotly_dark", height=400)
     st.plotly_chart(fig2, use_container_width=True)
 
