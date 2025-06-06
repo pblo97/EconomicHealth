@@ -115,7 +115,7 @@ st.title("🧍 Anatomía Económica del Mercado")
 
 sistema = st.sidebar.selectbox(
     "Selecciona un sistema",
-    ["General", "🫀 Circulatorio", "🧠 Nervioso", "Pulmones"]
+    ["General", "🫀 Circulatorio", "🧠 Nervioso", "🫁 Pulmones", "🧬 Metabolismo"]
 )
 
 # ----------- SISTEMA CIRCULATORIO -------------- #
@@ -167,7 +167,7 @@ elif sistema == "🧠 Nervioso":
     fig7.update_layout(title="High Yield Spread", template="plotly_dark", height=400)
     st.plotly_chart(fig7, use_container_width=True)
 
-elif sistema == "Pulmones":
+elif sistema == "🫁 Pulmones":
     st.header("Pulmones (Curva de rendimientos)")
 
     fig8 = go.Figure()
@@ -184,6 +184,27 @@ elif sistema == "Pulmones":
     fig10.add_trace(go.Scatter(x = df_full.index, y = df_full["Total Bank Credit"], name = "Credito bancario total", line = dict(color = "green") ))
     fig10.update_layout(title = "Credito", template = "plotly_dark", height = 800)
     st.plotly_chart(fig10, use_container_width=True)
+
+elif sistema == "🧬 Metabolismo":
+    st.header("Metabolismo (Empleo y actividad)")
+    fig11 = go.Figure()
+    fig11.add_trace(go.Scatter(x=df_full.index, y=df_full["Initial Jobless Claims"], name = "Desempleo", line = dict(color = "#845A5A")))
+    fig11.update_layout(title = "Desempleo", template = "plotly_dark", height = 800)
+    st.plotly_chart(fig11, use_container_width=True)
+
+    fig12 = go.Figure()
+    fig12.add_trace(go.Scatter(x=df_full.index, y=df_full["Personal Consumption Expenditures"], name = "Consumo", line = dict(color = "#555C78")))
+    fig12.update_layout(title = "Consumo", template = "plotly_dark", height = 800)
+    st.plotly_chart(fig12, use_container_width=True)
+
+    fig13 = go.Figure()
+    fig13.add_trace(go.Scatter(x=df_full.index, y=df_full["Avg Weekly Hours (Private Sector)"], name= "Promedio horas trabajadas sector privada", line = dict(color = "#B6A268")))
+    fig13.update_layout(title = "Promedio horas trabajadas sector privada", template = "plotly_dark", height = 800)
+    st.plotly_chart(fig13, use_container_width=True)
+
+    
+
+
 
 
 
