@@ -21,65 +21,6 @@ import streamlit as st
 
 st.set_page_config(layout="wide")
 
-# PROYECTO ANATOMIA ECONOMICA 
-# Obejtivo : analizar y preparar medidas de inversion en el ambiente macroeconomico
-"""
-🧍 Diagnóstico Fisiológico – Órganos y Sistemas Económicos
-
-•	🫀 Circulatorio (Liquidez): RRP, SOFR–EFFR, M2, Reservas.
-•	🧠 Nervioso (Condiciones financieras): NFCI, VIX, HY Spread.
-•	🫁 Pulmones (Curva de rendimiento): 2Y–10Y, BAA, préstamos.
-•	🧬 Metabolismo (Empleo y actividad): ICSA, horas trabajadas, PCE.
-•	🧪 Inmunológico (Shadow banking): spreads, RRP, colateral.
-•	🦾 Muscular (Producción industrial): PMI, producción, capacidad.
-•	🦠 Linfático (Cadenas logísticas): Freight, GSCPI.
-•	🧽 Riñones (Filtrado Fed): QE, balance, BTFP.
-•	🧹 Hígado (Digestión bancaria): crédito bancario, préstamos.
-•	🫄 Útero (Innovación): IPOs, productividad, gasto en I+D.
-•	🦴 Óseo (Instituciones): gobernabilidad, CPI institucional.
-•	🫦 Comunicación (Mercados): bid-ask, volumen, distorsión.
-•	🧘 Autónomo (Política fiscal/monetaria): déficit, tasas, impulso.
-•	🍽️ Digestivo (Consumo): Retail sales, confianza consumidor.
-•	🌡️ Temperatura (Inflación): CPI, core CPI, sticky CPI.
-•	🌐 Piel (Externo): balanza comercial, flujos capitales.
-
-🧠 Capa de Inteligencia Estratégica
-•	Genera sugerencias tácticas basadas en alertas activas.
-•	Ejemplo: stress de liquidez + curva invertida → rotar a cash y T-Bills.
-•	Matriz de decisiones para acciones sugeridas.
-
-📈 Capa de Momentum y Aceleración
-•	Detecta el ritmo del deterioro o mejora.
-•	Incluye tasas de cambio, z-score de momentum.
-•	Señala si el problema está estabilizado o agravándose.
-
-📊 Capa Comparativa Temporal
-•	Cómo estamos hoy vs hace 1, 3, 6, 12 meses.
-•	Evolución de subíndices compuestos y alertas activas.
-•	Visualización tipo radar o heatmap.
-
-📚 Capa de Storytelling Económico
-•	Agrega interpretación narrativa: ¿qué historia están contando los datos?
-•	Ej: “Esto se parece al ciclo 2011-2012”, o “Desaceleración con inflación”
-•	Agrega etiquetas a eventos clave sobre el timeline.
-
-🛡️ Capa de Defensa y Cobertura
-•	Evalúa exposición actual y estrategias de protección.
-•	Ejemplo: VIX bajo + FOMO → agregar puts o rotar a oro.
-•	Sugiere portafolio defensivo basado en condiciones.
-
-🎯 Capa de Acción Directa
-•	Traduce señales en decisiones de rotación de activos.
-•	Propuesta de asignación por clase: equity, bonos, cash, commodities.
-•	Filtro de sectores sugeridos por fase del ciclo.
-
-🧠 Capa Predictiva con Machine Learning
-•	Entrenar modelos con tus propios índices compuestos.
-•	Detectar patrones de crisis antes de que se activen alertas duras.
-•	Clustering para encontrar regímenes ocultos de mercado.
-
-
-"""
 fred = Fred(api_key="02ea49012ba021ea89f1110c48de7380")
 
 start = '2021-01-01'
