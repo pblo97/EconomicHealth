@@ -122,9 +122,9 @@ series = {
     "A191RL1Q225SBEA": "Real GDP per Capita",
     "GPDIC1": "Gross Private Domestic Investment",
     "TCU": "Capacity Utilization: Total Industry",
-    "PRSFIS": "Potential GDP (CBO Estimate)",
-    "A019RC1Q027SBEA": "Gross Government Investment",
-    "NETEXC": "Net Exports of Goods and Services",
+    "PGDPPOT": "Potential GDP (CBO Estimate)",
+    "GCEC1": "Real Government Consumption Expenditures and Gross Investment",
+    "NETEXP": "Net Exports of Goods and Services",
     "FYFSGDA188S": "Federal Debt to GDP Ratio",
     "PSAVERT": "Personal Saving Rate"
 
@@ -485,7 +485,7 @@ elif sistema == "Sistema Oseo(Estructura economica)":
     st.plotly_chart(fig_s5, use_container_width=True)
 
     fig_s6 = go.Figure()
-    fig_s6.add_trace(go.Scatter(x=df_full.index, y=df_full["Gross Government Investment"], name="Gov Investment", line=dict(color="#9C27B0")))
+    fig_s6.add_trace(go.Scatter(x=df_full.index, y=df_full["Real Government Consumption Expenditures and Gross Investment"], name="Gov Investment", line=dict(color="#9C27B0")))
     fig_s6.update_layout(title="Gross Government Investment", template="plotly_dark", height=400)
     st.plotly_chart(fig_s6, use_container_width=True)
 
