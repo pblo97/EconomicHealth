@@ -86,7 +86,7 @@ series = {
 
     "INDPRO": "Industrial Production Index",
     "TCU": "Capacity Utilization: Total Industry",
-    "NAPMNOI": "ISM New Orders Index",#similar a PMI, no esta descargable en FRED pero alta correlacion.
+    "NAPMNOI": "ISM New Orders Index",
     "IPMAN": "Industrial Production: Manufacturing",
     "IPB50001N": "Industrial Production: Durable Consumer Goods",
     "IPG331S": "Industrial Production: Mining"
