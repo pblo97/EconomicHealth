@@ -122,7 +122,7 @@ series = {
     "A191RL1Q225SBEA": "Real GDP per Capita",
     "GPDIC1": "Gross Private Domestic Investment",
     "TCU": "Capacity Utilization: Total Industry",
-    "PGDPPOT": "Potential GDP (CBO Estimate)",
+    "GDPPOT": "Real Potential Gross Domestic Product",
     "GCEC1": "Real Government Consumption Expenditures and Gross Investment",
     "NETEXP": "Net Exports of Goods and Services",
     "FYFSGDA188S": "Federal Debt to GDP Ratio",
@@ -480,8 +480,8 @@ elif sistema == "Sistema Oseo(Estructura economica)":
     st.plotly_chart(fig_s4, use_container_width=True)
 
     fig_s5 = go.Figure()
-    fig_s5.add_trace(go.Scatter(x=df_full.index, y=df_full["Potential GDP (CBO Estimate)"], name="Potential GDP", line=dict(color="#FF5722")))
-    fig_s5.update_layout(title="Potential GDP (CBO)", template="plotly_dark", height=400)
+    fig_s5.add_trace(go.Scatter(x=df_full.index, y=df_full["Real Potential Gross Domestic Product"], name="Real Potential Gross Domestic Product", line=dict(color="#FF5722")))
+    fig_s5.update_layout(title="Real Potential Gross Domestic Product", template="plotly_dark", height=400)
     st.plotly_chart(fig_s5, use_container_width=True)
 
     fig_s6 = go.Figure()
