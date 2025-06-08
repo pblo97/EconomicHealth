@@ -137,7 +137,12 @@ series = {
     "GFDEBTN": "Federal Debt: Total Public Debt",               # Deuda pública total nominal
     "GFDEGDQ188S": "Federal Debt: % of GDP",                    # Deuda federal como % del PIB
     "A091RC1Q027SBEA": "Interest Payments by the Federal Government",  # Pagos de intereses
-    "MTSDS133FMS": "Federal Surplus or Deficit"                 # Superávit o déficit del gobierno federal
+    "MTSDS133FMS": "Federal Surplus or Deficit",
+
+    "PCE": "Personal Consumption Expenditures",
+    "PCECC96": "Real Personal Consumption Expenditures",
+    "REVOLSL": "Consumer Credit: Credit Cards and Other Revolving Plans",
+    "NONREVSL": "Consumer Credit: Nonrevolving"      # Superávit o déficit del gobierno federal
 
 
 
@@ -192,7 +197,7 @@ st.title("🧍 Anatomía Económica del Mercado")
 
 sistema = st.sidebar.selectbox(
     "Selecciona un sistema",
-    ["General", "🫀 Circulatorio", "🧠 Nervioso", "🫁 Pulmones", "🧬 Metabolismo", "🧪 Inmunológico (Shadow banking)", "Musculatura (Produccion industrial)", "Cadenas logisticas", "Higado (Sistema bancario)", "Utero (Innovacion y desarollo)", "Sistema Oseo(Estructura economica)","Comunicacion(Sentimiento de mercado)","Sistema autonomo(Politica fiscal y monetaria)"]
+    ["General", "🫀 Circulatorio", "🧠 Nervioso", "🫁 Pulmones", "🧬 Metabolismo", "🧪 Inmunológico (Shadow banking)", "Musculatura (Produccion industrial)", "Cadenas logisticas", "Higado (Sistema bancario)", "Utero (Innovacion y desarollo)", "Sistema Oseo(Estructura economica)","Comunicacion(Sentimiento de mercado)","Sistema autonomo(Politica fiscal y monetaria)","Sistema digestivo(consumo)"]
 )
 
 # ----------- SISTEMA CIRCULATORIO -------------- #
@@ -577,6 +582,34 @@ elif sistema == "Sistema autonomo(Politica fiscal y monetaria)":
     fig_a5.add_trace(go.Scatter(x=df_full.index, y=df_full["Federal Surplus or Deficit"], name="Superávit o Déficit Fiscal", line=dict(color="#9C27B0")))
     fig_a5.update_layout(title="Superávit o Déficit Fiscal", template="plotly_dark", height=400)
     st.plotly_chart(fig_a5, use_container_width=True)
+
+elif sistema == "Sistema digestivo(consumo)":
+    st.header("Sistema Digestivo (Consumo)")
+
+    fig_d1 = go.Figure()
+    fig_d1.add_trace(go.Scatter(x=df_full.index, y=df_full["Personal Consumption Expenditures"],name="PCE", line=dict(color="#29B6F6")))
+    fig_d1.update_layout(title="Personal Consumption Expenditures", template="plotly_dark", height=400)
+    st.plotly_chart(fig_d1, use_container_width=True)
+
+    # Gasto real (PCECC96)
+    fig_d2 = go.Figure()
+    fig_d2.add_trace(go.Scatter(x=df_full.index, y=df_full["Real Personal Consumption Expenditures"], name="PCE Real", line=dict(color="#66BB6A")))
+    fig_d2.update_layout(title="Real Personal Consumption Expenditures", template="plotly_dark", height=400)
+    st.plotly_chart(fig_d2, use_container_width=True)
+
+    # Crédito rotativo (tarjetas)
+    fig_d3 = go.Figure()
+    fig_d3.add_trace(go.Scatter(x=df_full.index, y=df_full["Consumer Credit: Credit Cards and Other Revolving Plans"],name="Revolving Credit", line=dict(color="#FF7043")))
+    fig_d3.update_layout(title="Revolving Consumer Credit (Credit Cards)", template="plotly_dark", height=400)
+    st.plotly_chart(fig_d3, use_container_width=True)
+
+    # Crédito no rotativo
+    fig_d4 = go.Figure()
+    fig_d4.add_trace(go.Scatter(x=df_full.index, y=df_full["Consumer Credit: Nonrevolving"],name="Nonrevolving Credit", line=dict(color="#AB47BC")))
+    fig_d4.update_layout(title="Nonrevolving Consumer Credit", template="plotly_dark", height=400)
+    st.plotly_chart(fig_d4, use_container_width=True)
+
+
 
 
 
