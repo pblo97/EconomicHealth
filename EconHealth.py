@@ -175,14 +175,6 @@ df_full['SOFR-EFFR'] = (
     df_full["EFFR"]
 )
 
-df_corazon = df_full[[
-    'SOFR-EFFR',
-    'M2 Money Stock',
-    'Reserve Balances with Federal Reserve Banks',
-    'Reverse Repo (ON RRP)'
-    
-
-]]
 
 df_full['2Y Treasury Yield - 10Y Treasury Yield'] = (
     df_full['2Y Treasury Yield'] - df_full['10Y Treasury Yield']
