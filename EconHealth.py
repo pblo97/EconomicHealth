@@ -229,6 +229,11 @@ elif sistema == "🫀 Circulatorio":
     fig4.update_layout(title="Reservas Bancarias", template="plotly_dark", height=400)
     st.plotly_chart(fig4, use_container_width=True) 
 
+    fig4a = go.Figure()
+    fig4a.add_trace(go.Scatter(x=df_full.index, y=df_full['Velocity of M2 Money Stock'], name = "Velocity of M2 Money Stock", line = dict(color = "#3B3256")))
+    fig4a.update_layout(title="Velocidad de M2", template="plotly_dark",height = 400)
+    st.plotly_chart(fig4a, use_container_width=True)
+
 
 # ----------- SISTEMA NERVIOSO -------------- #
 elif sistema == "🧠 Nervioso":
