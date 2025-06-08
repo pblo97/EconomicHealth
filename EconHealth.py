@@ -336,10 +336,7 @@ elif sistema == "🧪 Inmunológico (Shadow banking)":
     fig22.update_layout(title = "Nonrevolving Consumer Credit", template = "plotly_dark", height = 800)
     st.plotly_chart(fig22, use_container_width=True)
     
-    fig23 = go.Figure()
-    fig23.add_trace(go.Scatter(x=df_full.index, y=df_full['Bank Term Funding Program Usage'], name="Bank Term Funding Program Usage", list = dict(color = "#36375D")))
-    fig23.update_layout(title = "Bank Term Funding Program Usage", template = "plotly_dark", height = 800)
-    st.plotly_chart(fig23, use_container_width=True)
+
 
 elif sistema == "Musculatura (Produccion industrial)":
     st.header("Musculatura (Produccion industrial)")
