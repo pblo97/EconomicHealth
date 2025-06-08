@@ -533,6 +533,10 @@ elif sistema == "Comunicacion(Sentimiento de mercado)":
     st.plotly_chart(fig_c3, use_container_width=True)
 
     # fig_c4: Small Business Optimism Index (NFIB)
+    fig_c4 = go.Figure()
+    fig_c4.add_trace(go.Scatter(x=df_full.index, y=df_full["VIX"], name = "VIX", line = dict(color = "#431818")))
+    fig_c4.update_layout(title="VIX", template="plotly_dark", height=400)
+    st.plotly_chart(fig_c4, use_container_width=True)
 
     # fig_c5: Expected Inflation 1Y Ahead
     fig_c5 = go.Figure()
