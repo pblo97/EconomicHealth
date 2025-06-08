@@ -142,7 +142,12 @@ series = {
     "PCE": "Personal Consumption Expenditures",
     "PCECC96": "Real Personal Consumption Expenditures",
     "REVOLSL": "Consumer Credit: Credit Cards and Other Revolving Plans",
-    "NONREVSL": "Consumer Credit: Nonrevolving"      # Superávit o déficit del gobierno federal
+    "NONREVSL": "Consumer Credit: Nonrevolving",
+          
+    "PCEPI": "PCE: Chain-type Price Index",
+    "WPUFD49207": "PPI: Intermediate Demand by Production Flow",
+    "WPSFD49207": "PPI: Final Demand by Production Flow",
+    "GFDEBTN": "Federal Debt: Total Public Debt"      # Superávit o déficit del gobierno federal
 
 
 
@@ -197,7 +202,7 @@ st.title("🧍 Anatomía Económica del Mercado")
 
 sistema = st.sidebar.selectbox(
     "Selecciona un sistema",
-    ["General", "🫀 Circulatorio", "🧠 Nervioso", "🫁 Pulmones", "🧬 Metabolismo", "🧪 Inmunológico (Shadow banking)", "Musculatura (Produccion industrial)", "Cadenas logisticas", "Higado (Sistema bancario)", "Utero (Innovacion y desarollo)", "Sistema Oseo(Estructura economica)","Comunicacion(Sentimiento de mercado)","Sistema autonomo(Politica fiscal y monetaria)","Sistema digestivo(consumo)"]
+    ["General", "🫀 Circulatorio", "🧠 Nervioso", "🫁 Pulmones", "🧬 Metabolismo", "🧪 Inmunológico (Shadow banking)", "Musculatura (Produccion industrial)", "Cadenas logisticas", "Higado (Sistema bancario)", "Utero (Innovacion y desarollo)", "Sistema Oseo(Estructura economica)","Comunicacion(Sentimiento de mercado)","Sistema autonomo(Politica fiscal y monetaria)","Sistema digestivo(consumo)","Temperatura(Inflacion)"]
 )
 
 # ----------- SISTEMA CIRCULATORIO -------------- #
@@ -608,6 +613,29 @@ elif sistema == "Sistema digestivo(consumo)":
     fig_d4.add_trace(go.Scatter(x=df_full.index, y=df_full["Consumer Credit: Nonrevolving"],name="Nonrevolving Credit", line=dict(color="#AB47BC")))
     fig_d4.update_layout(title="Nonrevolving Consumer Credit", template="plotly_dark", height=400)
     st.plotly_chart(fig_d4, use_container_width=True)
+
+elif sistema == "Temperatura(Inflacion)":
+    st.header("Temperatura (Inflación)")
+
+    fig_temp1 = go.Figure()
+    fig_temp1.add_trace(go.Scatter(x=df_full.index, y=df_full["PCE: Chain-type Price Index"], name="PCE Price Index", line=dict(color="#F44336")))
+    fig_temp1.update_layout(title="PCE: Chain-type Price Index", template="plotly_dark", height=400)
+    st.plotly_chart(fig_temp1, use_container_width=True)
+
+    fig_temp2 = go.Figure()
+    fig_temp2.add_trace(go.Scatter(x=df_full.index, y=df_full["PPI: Intermediate Demand by Production Flow"], name="PPI - Intermediate Demand", line=dict(color="#FF9800")))
+    fig_temp2.update_layout(title="PPI - Intermediate Demand", template="plotly_dark", height=400)
+    st.plotly_chart(fig_temp2, use_container_width=True)
+
+    fig_temp3 = go.Figure()
+    fig_temp3.add_trace(go.Scatter(x=df_full.index, y=df_full["PPI: Final Demand by Production Flow"], name="PPI - Final Demand", line=dict(color="#FFC107")))
+    fig_temp3.update_layout(title="PPI - Final Demand", template="plotly_dark", height=400)
+    st.plotly_chart(fig_temp3, use_container_width=True)
+
+    fig_temp4 = go.Figure()
+    fig_temp4.add_trace(go.Scatter(x=df_full.index, y=df_full["Federal Debt: Total Public Debt"], name="Total Public Debt", line=dict(color="#D32F2F")))
+    fig_temp4.update_layout(title="Total Public Debt", template="plotly_dark", height=400)
+    st.plotly_chart(fig_temp4, use_container_width=True)
 
 
 
