@@ -131,7 +131,6 @@ series = {
     "UMCSENT": "Consumer Sentiment (UMich)",
     "T5YIFR": "5Y5Y Forward Inflation Expectation",
     "T10YIE": "10Y Breakeven Inflation",
-    "SBOITOTL": "Small Business Optimism Index (NFIB)",
     "EXPINF1YR": "Expected Inflation 1Y Ahead",
 
 
@@ -534,10 +533,6 @@ elif sistema == "Comunicacion(Sentimiento de mercado)":
     st.plotly_chart(fig_c3, use_container_width=True)
 
     # fig_c4: Small Business Optimism Index (NFIB)
-    fig_c4 = go.Figure()
-    fig_c4.add_trace(go.Scatter(x=df_full.index, y=df_full["Small Business Optimism Index (NFIB)"],name="NFIB Optimism Index", line=dict(color="#AB47BC")))
-    fig_c4.update_layout(title="Small Business Optimism Index (NFIB)", template="plotly_dark", height=400)
-    st.plotly_chart(fig_c4, use_container_width=True)
 
     # fig_c5: Expected Inflation 1Y Ahead
     fig_c5 = go.Figure()
