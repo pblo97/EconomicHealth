@@ -126,7 +126,17 @@ series = {
     "GCEC1": "Real Government Consumption Expenditures and Gross Investment",
     "NETEXP": "Net Exports of Goods and Services",
     "FYFSGDA188S": "Federal Debt to GDP Ratio",
-    "PSAVERT": "Personal Saving Rate"
+    "PSAVERT": "Personal Saving Rate",
+
+    "UMCSENT": "Consumer Sentiment (UMich)",
+    "T5YIFR": "5Y5Y Forward Inflation Expectation",
+    "T10YIE": "10Y Breakeven Inflation",
+    "SBOITOTL": "Small Business Optimism Index (NFIB)",
+    "EXPINF1YR": "Expected Inflation 1Y Ahead",
+
+
+
+
 
 
     
@@ -177,7 +187,7 @@ st.title("🧍 Anatomía Económica del Mercado")
 
 sistema = st.sidebar.selectbox(
     "Selecciona un sistema",
-    ["General", "🫀 Circulatorio", "🧠 Nervioso", "🫁 Pulmones", "🧬 Metabolismo", "🧪 Inmunológico (Shadow banking)", "Musculatura (Produccion industrial)", "Cadenas logisticas", "Higado (Sistema bancario)", "Utero (Innovacion y desarollo)", "Sistema Oseo(Estructura economica)"]
+    ["General", "🫀 Circulatorio", "🧠 Nervioso", "🫁 Pulmones", "🧬 Metabolismo", "🧪 Inmunológico (Shadow banking)", "Musculatura (Produccion industrial)", "Cadenas logisticas", "Higado (Sistema bancario)", "Utero (Innovacion y desarollo)", "Sistema Oseo(Estructura economica)","Comunicacion(Sentimiento de mercado)"]
 )
 
 # ----------- SISTEMA CIRCULATORIO -------------- #
@@ -503,6 +513,38 @@ elif sistema == "Sistema Oseo(Estructura economica)":
     fig_s9.add_trace(go.Scatter(x=df_full.index, y=df_full["Personal Saving Rate"], name="Savings Rate", line=dict(color="#795548")))
     fig_s9.update_layout(title="Personal Saving Rate", template="plotly_dark", height=400)
     st.plotly_chart(fig_s9, use_container_width=True)
+
+elif sistema == "Comunicacion(Sentimiento de mercado)":
+    st.header("Comunicación (Sentimiento de mercado)")
+    fig_c1 = go.Figure()
+    fig_c1.add_trace(go.Scatter(x=df_full.index, y=df_full["Consumer Sentiment (UMich)"],name="Consumer Sentiment (UMich)", line=dict(color="#42A5F5")))
+    fig_c1.update_layout(title="Consumer Sentiment (UMich)", template="plotly_dark", height=400)
+    st.plotly_chart(fig_c1, use_container_width=True)
+
+    # fig_c2: 5Y5Y Forward Inflation Expectation
+    fig_c2 = go.Figure()
+    fig_c2.add_trace(go.Scatter(x=df_full.index, y=df_full["5Y5Y Forward Inflation Expectation"],name="5Y5Y Forward Inflation Expectation", line=dict(color="#66BB6A")))
+    fig_c2.update_layout(title="5Y5Y Forward Inflation Expectation", template="plotly_dark", height=400)
+    st.plotly_chart(fig_c2, use_container_width=True)
+
+    # fig_c3: 10Y Breakeven Inflation
+    fig_c3 = go.Figure()
+    fig_c3.add_trace(go.Scatter(x=df_full.index, y=df_full["10Y Breakeven Inflation"],name="10Y Breakeven Inflation", line=dict(color="#FFA726")))
+    fig_c3.update_layout(title="10Y Breakeven Inflation", template="plotly_dark", height=400)
+    st.plotly_chart(fig_c3, use_container_width=True)
+
+    # fig_c4: Small Business Optimism Index (NFIB)
+    fig_c4 = go.Figure()
+    fig_c4.add_trace(go.Scatter(x=df_full.index, y=df_full["Small Business Optimism Index (NFIB)"],name="NFIB Optimism Index", line=dict(color="#AB47BC")))
+    fig_c4.update_layout(title="Small Business Optimism Index (NFIB)", template="plotly_dark", height=400)
+    st.plotly_chart(fig_c4, use_container_width=True)
+
+    # fig_c5: Expected Inflation 1Y Ahead
+    fig_c5 = go.Figure()
+    fig_c5.add_trace(go.Scatter(x=df_full.index, y=df_full["Expected Inflation 1Y Ahead"],name="Expected Inflation 1Y Ahead", line=dict(color="#EF5350")))
+    fig_c5.update_layout(title="Expected Inflation 1Y Ahead", template="plotly_dark", height=400)
+    st.plotly_chart(fig_c5, use_container_width=True)
+
 
 
 
