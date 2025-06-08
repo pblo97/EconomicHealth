@@ -149,11 +149,6 @@ series = {
     "WPSFD49207": "PPI: Final Demand by Production Flow",
     "GFDEBTN": "Federal Debt: Total Public Debt",
          
-    "NETEXP": "Net Exports of Goods and Services",  # Exportaciones netas
-    "EXPGSC1": "Real Exports of Goods and Services",  # Exportaciones reales
-    "IMPGSC1": "Real Imports of Goods and Services",  # Importaciones reales
-    "BOPBCA": "Balance on Current Account",           # Cuenta corriente
-    "BOPIIP": "U.S. Net International Investment Position",  # Posición de inversión internacional     # Superávit o déficit del gobierno federal
 
 
     
@@ -202,7 +197,7 @@ st.title("🧍 Anatomía Económica del Mercado")
 
 sistema = st.sidebar.selectbox(
     "Selecciona un sistema",
-    ["General", "🫀 Circulatorio", "🧠 Nervioso", "🫁 Pulmones", "🧬 Metabolismo", "🧪 Inmunológico (Shadow banking)", "Musculatura (Produccion industrial)", "Cadenas logisticas", "Higado (Sistema bancario)", "Utero (Innovacion y desarollo)", "Sistema Oseo(Estructura economica)","Comunicacion(Sentimiento de mercado)","Sistema autonomo(Politica fiscal y monetaria)","Sistema digestivo(consumo)","Temperatura(Inflacion)","Piel (economia externa)"]
+    ["General", "🫀 Circulatorio", "🧠 Nervioso", "🫁 Pulmones", "🧬 Metabolismo", "🧪 Inmunológico (Shadow banking)", "Musculatura (Produccion industrial)", "Cadenas logisticas", "Higado (Sistema bancario)", "Utero (Innovacion y desarollo)", "Sistema Oseo(Estructura economica)","Comunicacion(Sentimiento de mercado)","Sistema autonomo(Politica fiscal y monetaria)","Sistema digestivo(consumo)","Temperatura(Inflacion)"]
 )
 
 # ----------- SISTEMA CIRCULATORIO -------------- #
@@ -637,33 +632,7 @@ elif sistema == "Temperatura(Inflacion)":
     fig_temp4.update_layout(title="Total Public Debt", template="plotly_dark", height=400)
     st.plotly_chart(fig_temp4, use_container_width=True)
 
-elif sistema == "Piel (economia externa)":
-    st.header("Piel (Economía Externa)")
 
-    fig_skin1 = go.Figure()
-    fig_skin1.add_trace(go.Scatter(x=df_full.index, y=df_full["Net Exports of Goods and Services"], name="Net Exports", line=dict(color="#607D8B")))
-    fig_skin1.update_layout(title="Net Exports of Goods and Services", template="plotly_dark", height=400)
-    st.plotly_chart(fig_skin1, use_container_width=True)
-
-    fig_skin2 = go.Figure()
-    fig_skin2.add_trace(go.Scatter(x=df_full.index, y=df_full["Real Exports of Goods and Services"], name="Exports", line=dict(color="#4CAF50")))
-    fig_skin2.update_layout(title="Real Exports", template="plotly_dark", height=400)
-    st.plotly_chart(fig_skin2, use_container_width=True)
-
-    fig_skin3 = go.Figure()
-    fig_skin3.add_trace(go.Scatter(x=df_full.index, y=df_full["Real Imports of Goods and Services"], name="Imports", line=dict(color="#F44336")))
-    fig_skin3.update_layout(title="Real Imports", template="plotly_dark", height=400)
-    st.plotly_chart(fig_skin3, use_container_width=True)
-
-    fig_skin4 = go.Figure()
-    fig_skin4.add_trace(go.Scatter(x=df_full.index, y=df_full["Balance on Current Account"], name="Current Account Balance", line=dict(color="#03A9F4")))
-    fig_skin4.update_layout(title="Current Account Balance", template="plotly_dark", height=400)
-    st.plotly_chart(fig_skin4, use_container_width=True)
-
-    fig_skin5 = go.Figure()
-    fig_skin5.add_trace(go.Scatter(x=df_full.index, y=df_full["U.S. Net International Investment Position"], name="Net International Investment Position", line=dict(color="#9C27B0")))
-    fig_skin5.update_layout(title="Net International Investment Position", template="plotly_dark", height=400)
-    st.plotly_chart(fig_skin5, use_container_width=True)
 
 
 
