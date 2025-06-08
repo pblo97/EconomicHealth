@@ -133,6 +133,12 @@ series = {
     "T10YIE": "10Y Breakeven Inflation",
     "EXPINF1YR": "Expected Inflation 1Y Ahead",
 
+    "GCEC1": "Real Government Consumption & Gross Investment",  # Gasto e inversión pública real
+    "GFDEBTN": "Federal Debt: Total Public Debt",               # Deuda pública total nominal
+    "GFDEGDQ188S": "Federal Debt: % of GDP",                    # Deuda federal como % del PIB
+    "A091RC1Q027SBEA": "Interest Payments by the Federal Government",  # Pagos de intereses
+    "MTSDS133FMS": "Federal Surplus or Deficit"                 # Superávit o déficit del gobierno federal
+
 
 
 
@@ -186,7 +192,7 @@ st.title("🧍 Anatomía Económica del Mercado")
 
 sistema = st.sidebar.selectbox(
     "Selecciona un sistema",
-    ["General", "🫀 Circulatorio", "🧠 Nervioso", "🫁 Pulmones", "🧬 Metabolismo", "🧪 Inmunológico (Shadow banking)", "Musculatura (Produccion industrial)", "Cadenas logisticas", "Higado (Sistema bancario)", "Utero (Innovacion y desarollo)", "Sistema Oseo(Estructura economica)","Comunicacion(Sentimiento de mercado)"]
+    ["General", "🫀 Circulatorio", "🧠 Nervioso", "🫁 Pulmones", "🧬 Metabolismo", "🧪 Inmunológico (Shadow banking)", "Musculatura (Produccion industrial)", "Cadenas logisticas", "Higado (Sistema bancario)", "Utero (Innovacion y desarollo)", "Sistema Oseo(Estructura economica)","Comunicacion(Sentimiento de mercado)","Sistema autonomo(Politica fiscal y monetaria)"]
 )
 
 # ----------- SISTEMA CIRCULATORIO -------------- #
@@ -543,6 +549,34 @@ elif sistema == "Comunicacion(Sentimiento de mercado)":
     fig_c5.add_trace(go.Scatter(x=df_full.index, y=df_full["Expected Inflation 1Y Ahead"],name="Expected Inflation 1Y Ahead", line=dict(color="#EF5350")))
     fig_c5.update_layout(title="Expected Inflation 1Y Ahead", template="plotly_dark", height=400)
     st.plotly_chart(fig_c5, use_container_width=True)
+
+elif sistema == "Sistema autonomo(Politica fiscal y monetaria)":
+    st.header("Sistema Autónomo (Política Fiscal y Monetaria)")
+
+    fig_a1 = go.Figure()
+    fig_a1.add_trace(go.Scatter(x=df_full.index, y=df_full["Real Government Consumption & Gross Investment"], name="Gasto e inversión pública", line=dict(color="#4CAF50")))
+    fig_a1.update_layout(title="Gasto e Inversión Pública (Real)", template="plotly_dark", height=400)
+    st.plotly_chart(fig_a1, use_container_width=True)
+
+    fig_a2 = go.Figure()
+    fig_a2.add_trace(go.Scatter(x=df_full.index, y=df_full["Federal Debt: Total Public Debt"], name="Deuda Federal Total", line=dict(color="#F44336")))
+    fig_a2.update_layout(title="Deuda Pública Total", template="plotly_dark", height=400)
+    st.plotly_chart(fig_a2, use_container_width=True)
+
+    fig_a3 = go.Figure()
+    fig_a3.add_trace(go.Scatter(x=df_full.index, y=df_full["Federal Debt: % of GDP"], name="Deuda como % del PIB", line=dict(color="#2196F3")))
+    fig_a3.update_layout(title="Deuda Pública como % del PIB", template="plotly_dark", height=400)
+    st.plotly_chart(fig_a3, use_container_width=True)
+
+    fig_a4 = go.Figure()
+    fig_a4.add_trace(go.Scatter(x=df_full.index, y=df_full["Interest Payments by the Federal Government"], name="Pagos de intereses", line=dict(color="#FFC107")))
+    fig_a4.update_layout(title="Pagos de Interés del Gobierno Federal", template="plotly_dark", height=400)
+    st.plotly_chart(fig_a4, use_container_width=True)
+
+    fig_a5 = go.Figure()
+    fig_a5.add_trace(go.Scatter(x=df_full.index, y=df_full["Federal Surplus or Deficit"], name="Superávit o Déficit Fiscal", line=dict(color="#9C27B0")))
+    fig_a5.update_layout(title="Superávit o Déficit Fiscal", template="plotly_dark", height=400)
+    st.plotly_chart(fig_a5, use_container_width=True)
 
 
 
